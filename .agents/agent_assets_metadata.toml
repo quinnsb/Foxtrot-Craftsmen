@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "-wgrdNgJ-2HJ2RRuYeS2O"
+uri = "file://artifacts/foxtrot/public/assets/work-restaurant.png"
+type = "image"
+title = "Restaurant website screenshot"
+
+[[generated]]
+id = "9_hUXTynLn1iR3N9R7f6A"
+uri = "file://artifacts/foxtrot/public/assets/work-law.png"
+type = "image"
+title = "Law firm website screenshot"
+
+[[generated]]
+id = "ym1xk167lEp1Rl696ZD3s"
+uri = "file://artifacts/foxtrot/public/assets/work-outdoor.png"
+type = "image"
+title = "Outdoor brand website screenshot"
+
+[[generated]]
+id = "R9KpXwL_qSLL53rNA6IfS"
+uri = "file://artifacts/foxtrot/public/assets/work-brewery.png"
+type = "image"
+title = "Brewery website screenshot"
+
+[[generated]]
+id = "wNfXTqQJrK8F_1Utxu47Z"
+uri = "file://artifacts/foxtrot/public/assets/work-retail.png"
+type = "image"
+title = "Retail shop website screenshot"
+
+[[generated]]
+id = "xpTNaYYHLVHVJwwiHTry_"
+uri = "file://artifacts/foxtrot/public/assets/work-hotel.png"
+type = "image"
+title = "Hotel website screenshot"

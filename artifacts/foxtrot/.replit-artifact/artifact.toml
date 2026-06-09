@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Foxtrot Creative Agency"
+version = "1.0.0"
+id = "artifacts/foxtrot"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20066
+
+[services.development]
+run = "pnpm --filter @workspace/foxtrot run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/foxtrot", "run", "build" ]
+publicDir = "artifacts/foxtrot/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20066"
+BASE_PATH = "/"
