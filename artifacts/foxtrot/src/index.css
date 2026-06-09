@@ -101,8 +101,8 @@
   --popover-foreground: 0 0% 10%;
   --popover-border: 0 0% 10%;
 
-  /* Brick terra cotta — primary action color */
-  --primary: 12 52% 48%;
+  /* Red — primary action color */
+  --primary: 5 70% 50%;
   --primary-foreground: 0 0% 100%;
 
   /* Steel blue — secondary / surface */
@@ -119,8 +119,8 @@
   --destructive-foreground: 0 0% 100%;
 
   --input: 0 0% 10%;
-  --ring: 12 52% 48%;
-  --chart-1: 12 52% 48%;
+  --ring: 5 70% 50%;
+  --chart-1: 5 70% 50%;
   --chart-2: 210 38% 68%;
   --chart-3: 43 33% 94%;
   --chart-4: 0 0% 10%;
@@ -178,7 +178,7 @@
   --popover: 210 36% 91%;
   --popover-foreground: 0 0% 10%;
   --popover-border: 0 0% 10%;
-  --primary: 12 52% 48%;
+  --primary: 5 70% 50%;
   --primary-foreground: 0 0% 100%;
   --secondary: 210 38% 68%;
   --secondary-foreground: 0 0% 10%;
@@ -189,8 +189,8 @@
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   --input: 0 0% 10%;
-  --ring: 12 52% 48%;
-  --chart-1: 12 52% 48%;
+  --ring: 5 70% 50%;
+  --chart-1: 5 70% 50%;
   --chart-2: 210 38% 68%;
   --chart-3: 43 33% 94%;
   --chart-4: 0 0% 10%;
