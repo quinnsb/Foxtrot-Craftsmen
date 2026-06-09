@@ -52,7 +52,7 @@ export default function Home() {
     toast({
       title: "Message Received",
       description: "We'll be in touch shortly. Back to work.",
-      className: "bg-background border-border shadow-sm rounded-none font-sans font-medium uppercase",
+      className: "bg-background border-border shadow-sm rounded-none font-display font-medium uppercase",
     });
     form.reset();
   };
@@ -100,7 +100,7 @@ export default function Home() {
             <Button
               size="lg"
               onClick={() => scrollToSection("work")}
-              className="rounded-none h-16 px-8 text-lg font-sans uppercase font-bold tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-2 border-border shadow-sm hover:shadow transition-all"
+              className="rounded-none h-16 px-8 text-lg font-display uppercase font-bold tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-2 border-border shadow-sm hover:shadow transition-all"
               data-testid="hero-cta-work"
             >
               See Our Work
@@ -109,7 +109,7 @@ export default function Home() {
               size="lg"
               variant="outline"
               onClick={() => scrollToSection("contact")}
-              className="rounded-none h-16 px-8 text-lg font-sans uppercase font-bold tracking-widest border-2 border-border shadow-xs hover:bg-border hover:text-background transition-all"
+              className="rounded-none h-16 px-8 text-lg font-display uppercase font-bold tracking-widest border-2 border-border shadow-xs hover:bg-border hover:text-background transition-all"
               data-testid="hero-cta-contact"
             >
               Start a Project
@@ -123,10 +123,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b-4 border-border pb-8">
             <div>
-              <h2 className="text-sm font-sans font-bold text-primary uppercase tracking-widest mb-4 flex items-center gap-2">
+              <h2 className="text-sm font-display font-bold text-primary uppercase tracking-widest mb-4 flex items-center gap-2">
                 <span className="w-8 h-[2px] bg-primary block"></span> Selected Works
               </h2>
-              <h3 className="text-5xl md:text-6xl font-sans font-bold uppercase tracking-tighter">Built to Last</h3>
+              <h3 className="text-5xl md:text-6xl font-display font-bold uppercase tracking-tighter">Built to Last</h3>
             </div>
             <p className="font-serif text-muted-foreground max-w-md text-right hidden md:block">
               A collection of our finest digital goods, crafted for clients who demand reliability and character.
@@ -161,8 +161,8 @@ export default function Home() {
                   </div>
                   <div className="flex justify-between items-end mt-auto pt-2">
                     <div>
-                      <p className="text-xs font-sans font-bold text-primary uppercase tracking-widest mb-1">{project.category}</p>
-                      <h4 className="text-2xl font-sans font-bold uppercase tracking-tight">{project.title}</h4>
+                      <p className="text-xs font-display font-bold text-primary uppercase tracking-widest mb-1">{project.category}</p>
+                      <h4 className="text-2xl font-display font-bold uppercase tracking-tight">{project.title}</h4>
                     </div>
                     <div className="w-10 h-10 border-2 border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors">
                       <ArrowRight className="w-5 h-5" />
@@ -182,30 +182,30 @@ export default function Home() {
         </div>
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
           <div className="lg:w-1/3">
-            <h2 className="text-sm font-sans font-bold text-primary uppercase tracking-widest mb-4 flex items-center gap-2">
+            <h2 className="text-sm font-display font-bold text-primary uppercase tracking-widest mb-4 flex items-center gap-2">
               <span className="w-8 h-[2px] bg-primary block"></span> Our Services
             </h2>
-            <h3 className="text-5xl md:text-6xl font-sans font-bold uppercase tracking-tighter mb-6">What We Do</h3>
+            <h3 className="text-5xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-6">What We Do</h3>
             <p className="font-serif text-lg text-muted-foreground mb-8">
               We specialize in the heavy lifting of digital design. No fluff, no flavor-of-the-month trends. Just solid strategy and meticulous execution.
             </p>
             <div className="inline-block border-4 border-border p-6 bg-card rotate-1 transform">
-              <p className="font-sans font-bold uppercase text-2xl tracking-tighter text-center">
+              <p className="font-display font-bold uppercase text-2xl tracking-tighter text-center">
                 Quality<br />Guaranteed
               </p>
               <div className="w-full h-1 bg-border my-2"></div>
-              <p className="font-sans font-medium text-xs text-center tracking-widest">Since 1998</p>
+              <p className="font-display font-medium text-xs text-center tracking-widest">Since 1998</p>
             </div>
           </div>
 
           <div className="lg:w-2/3 border-t-4 border-border">
             {SERVICES.map((service, idx) => (
               <div key={idx} className="border-b-4 border-border py-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 group">
-                <div className="text-5xl font-sans font-bold text-border opacity-20 w-16 group-hover:opacity-100 group-hover:text-primary transition-all">
+                <div className="text-5xl font-display font-bold text-border opacity-20 w-16 group-hover:opacity-100 group-hover:text-primary transition-all">
                   0{idx + 1}
                 </div>
                 <div>
-                  <h4 className="text-3xl font-sans font-bold uppercase tracking-tight mb-2">{service.title}</h4>
+                  <h4 className="text-3xl font-display font-bold uppercase tracking-tight mb-2">{service.title}</h4>
                   <p className="font-serif text-muted-foreground">{service.desc}</p>
                 </div>
               </div>
@@ -223,19 +223,19 @@ export default function Home() {
               <div className="w-full h-full border-2 border-border flex items-center justify-center flex-col bg-background/50 p-8 text-center relative overflow-hidden">
                 <img src="/assets/foxtrot-logo-full.png" alt="Foxtrot" className="w-full opacity-80" />
                 <div className="absolute bottom-8 left-8 right-8 border-t-2 border-border pt-4">
-                  <p className="font-sans font-bold uppercase tracking-widest text-sm">Est. 1998 · Workshop</p>
+                  <p className="font-display font-bold uppercase tracking-widest text-sm">Est. 1998 · Workshop</p>
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-primary border-4 border-border flex items-center justify-center text-primary-foreground font-sans font-bold uppercase tracking-tighter text-xl rotate-12 shadow-sm">
+            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-primary border-4 border-border flex items-center justify-center text-primary-foreground font-display font-bold uppercase tracking-tighter text-xl rotate-12 shadow-sm">
               Solid.
             </div>
           </div>
           <div className="md:w-1/2">
-            <h2 className="text-sm font-sans font-bold text-primary uppercase tracking-widest mb-4 flex items-center gap-2">
+            <h2 className="text-sm font-display font-bold text-primary uppercase tracking-widest mb-4 flex items-center gap-2">
               <span className="w-8 h-[2px] bg-primary block"></span> Our Story
             </h2>
-            <h3 className="text-4xl md:text-5xl font-sans font-bold uppercase tracking-tighter mb-6">Hard at work. <br /> No excuses.</h3>
+            <h3 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter mb-6">Hard at work. <br /> No excuses.</h3>
             <div className="font-serif text-lg space-y-6 text-foreground/80">
               <p>
                 Foxtrot isn't a trendy Silicon Valley studio. We're a digital workshop modeled after the print shops and boot makers of the past. Every line of code, every pixel, every layout earns its place.
@@ -244,10 +244,10 @@ export default function Home() {
                 Since 1998, we've believed in putting in the reps. We sweat the details so you don't have to. The result is a digital presence that feels substantial, performs flawlessly, and refuses to break down when you need it most.
               </p>
               <div className="flex gap-4 pt-4 border-t-2 border-border border-dashed">
-                <div className="flex items-center gap-2 font-sans font-bold uppercase tracking-widest text-sm">
+                <div className="flex items-center gap-2 font-display font-bold uppercase tracking-widest text-sm">
                   <Check className="w-5 h-5 text-primary" /> Utilitarian Design
                 </div>
-                <div className="flex items-center gap-2 font-sans font-bold uppercase tracking-widest text-sm">
+                <div className="flex items-center gap-2 font-display font-bold uppercase tracking-widest text-sm">
                   <Check className="w-5 h-5 text-primary" /> Enduring Quality
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default function Home() {
           </div>
 
           <div className="mb-12">
-            <h2 className="text-4xl md:text-6xl font-sans font-bold uppercase tracking-tighter mb-4">Start a Project</h2>
+            <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">Start a Project</h2>
             <p className="font-serif text-lg text-muted-foreground">Drop us a line. Tell us what you're building. We'll bring the tools.</p>
           </div>
 
@@ -278,7 +278,7 @@ export default function Home() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-sans font-bold uppercase tracking-widest text-sm">Full Name</FormLabel>
+                      <FormLabel className="font-display font-bold uppercase tracking-widest text-sm">Full Name</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Jane Doe"
@@ -287,7 +287,7 @@ export default function Home() {
                           data-testid="input-name"
                         />
                       </FormControl>
-                      <FormMessage className="font-sans text-xs uppercase font-medium text-destructive" />
+                      <FormMessage className="font-display text-xs uppercase font-medium text-destructive" />
                     </FormItem>
                   )}
                 />
@@ -297,7 +297,7 @@ export default function Home() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-sans font-bold uppercase tracking-widest text-sm">Email Address</FormLabel>
+                      <FormLabel className="font-display font-bold uppercase tracking-widest text-sm">Email Address</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="jane@company.com"
@@ -306,7 +306,7 @@ export default function Home() {
                           data-testid="input-email"
                         />
                       </FormControl>
-                      <FormMessage className="font-sans text-xs uppercase font-medium text-destructive" />
+                      <FormMessage className="font-display text-xs uppercase font-medium text-destructive" />
                     </FormItem>
                   )}
                 />
@@ -317,7 +317,7 @@ export default function Home() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-sans font-bold uppercase tracking-widest text-sm">Project Details</FormLabel>
+                    <FormLabel className="font-display font-bold uppercase tracking-widest text-sm">Project Details</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="What are we building?"
@@ -326,7 +326,7 @@ export default function Home() {
                         data-testid="input-message"
                       />
                     </FormControl>
-                    <FormMessage className="font-sans text-xs uppercase font-medium text-destructive" />
+                    <FormMessage className="font-display text-xs uppercase font-medium text-destructive" />
                   </FormItem>
                 )}
               />
@@ -334,7 +334,7 @@ export default function Home() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full sm:w-auto rounded-none h-16 px-12 text-lg font-sans uppercase font-bold tracking-widest bg-foreground text-background hover:bg-primary border-2 border-border shadow-sm hover:shadow transition-all"
+                className="w-full sm:w-auto rounded-none h-16 px-12 text-lg font-display uppercase font-bold tracking-widest bg-foreground text-background hover:bg-primary border-2 border-border shadow-sm hover:shadow transition-all"
                 data-testid="btn-submit"
               >
                 Send Inquiry <ChevronRight className="ml-2 w-5 h-5" />
@@ -354,10 +354,10 @@ export default function Home() {
             >
               FOXTROT
             </span>
-            <p className="font-sans font-medium uppercase tracking-widest text-sm text-background/60">Hard at work since 1998.</p>
+            <p className="font-display font-medium uppercase tracking-widest text-sm text-background/60">Hard at work since 1998.</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 font-sans font-bold uppercase tracking-widest text-sm">
+          <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 font-display font-bold uppercase tracking-widest text-sm">
             <div className="flex flex-col gap-4">
               <button onClick={() => scrollToSection("work")} className="text-left hover:text-primary transition-colors" data-testid="footer-link-work">Work</button>
               <button onClick={() => scrollToSection("services")} className="text-left hover:text-primary transition-colors" data-testid="footer-link-services">Services</button>
@@ -368,7 +368,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-background/20 font-sans font-medium uppercase tracking-widest text-xs text-background/40 flex flex-col sm:flex-row justify-between gap-4">
+        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-background/20 font-display font-medium uppercase tracking-widest text-xs text-background/40 flex flex-col sm:flex-row justify-between gap-4">
           <p>&copy; {new Date().getFullYear()} Foxtrot Agency. All Rights Reserved.</p>
           <p>Built with intent.</p>
         </div>

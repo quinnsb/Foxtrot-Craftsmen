@@ -25,7 +25,7 @@ export default function SiteNav() {
           FOXTROT
         </a>
 
-        <nav className="flex items-center gap-6 md:gap-10 font-sans font-medium uppercase text-sm tracking-widest">
+        <nav className="flex items-center gap-6 md:gap-10 font-display font-medium uppercase text-sm tracking-widest">
           <button
             onClick={() => navTo("work")}
             className="hover:text-primary transition-colors"
@@ -49,7 +49,7 @@ export default function SiteNav() {
           </button>
           <Button
             onClick={() => navTo("contact")}
-            className="rounded-none border-2 border-border shadow-xs hover:shadow-sm font-sans uppercase font-bold tracking-widest"
+            className="rounded-none border-2 border-border shadow-xs hover:shadow-sm font-display uppercase font-bold tracking-widest"
             data-testid="nav-cta"
           >
             Start Project
