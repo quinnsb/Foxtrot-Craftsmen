@@ -136,7 +136,7 @@
   --chart-5: 210 28% 84%;
 
   --app-font-sans: 'Oswald', sans-serif;
-  --app-font-display: 'AbolitionSoft', sans-serif;
+  --app-font-display: 'Bebas Neue', 'Oswald', sans-serif;
   --app-font-serif: 'Libre Baskerville', serif;
   --app-font-mono: Menlo, monospace;
 
@@ -256,6 +256,17 @@
   }
   .border.toggle-elevate::before {
     inset: -1px;
+  }
+  .font-display {
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+  }
+  .font-display.tracking-tight,
+  .font-display.tracking-tighter {
+    letter-spacing: 0.035em;
+  }
+  .font-display.tracking-widest {
+    letter-spacing: 0.09em;
   }
   .hover-elevate:not(.no-default-hover-elevate),
   .active-elevate:not(.no-default-active-elevate),
