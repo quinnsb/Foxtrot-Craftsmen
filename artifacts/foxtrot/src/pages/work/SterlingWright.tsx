@@ -21,8 +21,7 @@ function MockSterlingWright() {
       </div>
 
       {/* Hero */}
-      <div style={{ height: "540px", background: "linear-gradient(135deg, #1a1a2e 0%, #2a2a4e 50%, #1a1a2e 100%)", display: "flex", alignItems: "center", padding: "0 80px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "45%", background: "linear-gradient(135deg, #2a2a4e 0%, #1a1a38 100%)", clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0 100%)" }} />
+      <div style={{ height: "540px", display: "flex", alignItems: "center", padding: "0 80px", position: "relative", backgroundImage: "linear-gradient(rgba(10,10,22,0.82),rgba(10,10,22,0.82)),url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div style={{ position: "absolute", right: "80px", top: "50%", transform: "translateY(-50%)", zIndex: 2, textAlign: "right" }}>
           <div style={{ width: "80px", height: "80px", border: "2px solid #8a7d5a", margin: "0 0 20px auto", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <span style={{ fontSize: "36px" }}>⚖</span>
@@ -96,12 +95,18 @@ function MockSterlingWright() {
             { name: "James R. Sterling", title: "Founding Partner", focus: "Corporate & M&A" },
             { name: "Patricia Wright", title: "Senior Partner", focus: "Civil Litigation" },
             { name: "David Chen", title: "Partner", focus: "Intellectual Property" },
-          ].map(a => (
+          ].map((a, i) => (
             <div key={a.name} style={{ background: "#fff", overflow: "hidden" }}>
-              <div style={{ height: "280px", background: "linear-gradient(135deg, #2a2a4e 0%, #1a1a30 100%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "100px", height: "100px", borderRadius: "50%", background: "#3a3a5e", border: "2px solid #8a7d5a", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ color: "#8a7d5a", fontSize: "40px" }}>👤</span>
-                </div>
+              <div style={{ height: "280px", overflow: "hidden" }}>
+                <img
+                  src={[
+                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+                  ][i]}
+                  alt={a.name}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+                />
               </div>
               <div style={{ padding: "24px" }}>
                 <h3 style={{ fontSize: "17px", fontWeight: "600", marginBottom: "4px" }}>{a.name}</h3>

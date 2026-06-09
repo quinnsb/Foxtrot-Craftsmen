@@ -23,8 +23,7 @@ function MockApexAlpine() {
       </div>
 
       {/* Hero */}
-      <div style={{ height: "600px", background: "linear-gradient(180deg, #1a2818 0%, #2d4a24 40%, #1a3518 80%, #0d1f0a 100%)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", position: "relative" }}>
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 50% 80%, rgba(232,200,64,0.08) 0%, transparent 60%)" }} />
+      <div style={{ height: "600px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", backgroundImage: "linear-gradient(rgba(8,14,6,0.75),rgba(8,14,6,0.75)),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <p style={{ fontSize: "11px", letterSpacing: "6px", color: "#e8c840", textTransform: "uppercase", marginBottom: "20px" }}>Fall / Winter 2024</p>
         <h1 style={{ fontSize: "80px", fontWeight: "900", color: "#fff", lineHeight: 0.9, marginBottom: "24px", letterSpacing: "-3px", textTransform: "uppercase" }}>
           Go<br /><span style={{ color: "#e8c840" }}>Higher.</span>
@@ -101,8 +100,8 @@ function MockApexAlpine() {
             ))}
           </div>
         </div>
-        <div style={{ flex: 1, height: "400px", background: "linear-gradient(180deg, #2d4a24 0%, #1a3518 100%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ color: "#3a5a30", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase" }}>Lifestyle Photography</span>
+        <div style={{ flex: 1, height: "400px", overflow: "hidden", flexShrink: 0 }}>
+          <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80" alt="Alpine lifestyle" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
       </div>
 

@@ -17,7 +17,7 @@ function MockIronAndOak() {
       </div>
 
       {/* Hero Banner */}
-      <div style={{ height: "520px", background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 80px" }}>
+      <div style={{ height: "520px", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 80px", backgroundImage: "linear-gradient(rgba(10,10,10,0.82),rgba(10,10,10,0.82)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div>
           <p style={{ fontSize: "11px", letterSpacing: "5px", color: "#888", textTransform: "uppercase", marginBottom: "16px" }}>New Arrivals — Fall Collection</p>
           <h1 style={{ fontSize: "64px", fontWeight: "800", color: "#fff", lineHeight: 0.95, marginBottom: "24px", letterSpacing: "-2px" }}>Built<br/>to Last.</h1>
@@ -27,8 +27,8 @@ function MockIronAndOak() {
             <div style={{ border: "1px solid #555", color: "#fff", padding: "14px 32px", fontSize: "12px", letterSpacing: "3px", textTransform: "uppercase" }}>Shop Women's</div>
           </div>
         </div>
-        <div style={{ width: "340px", height: "420px", background: "linear-gradient(135deg, #3a3020 0%, #2a2010 100%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ color: "#888", fontSize: "11px", letterSpacing: "2px", textTransform: "uppercase" }}>Product Image</span>
+        <div style={{ width: "340px", height: "420px", overflow: "hidden", flexShrink: 0 }}>
+          <img src="https://images.unsplash.com/photo-1489987707849-cf21b4e87213?auto=format&fit=crop&w=600&q=80" alt="Fall collection" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
       </div>
 
@@ -80,8 +80,8 @@ function MockIronAndOak() {
 
       {/* Brand Story */}
       <div style={{ padding: "80px 48px", background: "#111", color: "#fff", display: "flex", gap: "80px", alignItems: "center" }}>
-        <div style={{ width: "400px", height: "400px", background: "linear-gradient(135deg, #2a2010 0%, #1a1205 100%)", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ color: "#555", fontSize: "11px", letterSpacing: "2px", textTransform: "uppercase" }}>Brand Imagery</span>
+        <div style={{ width: "400px", height: "400px", flexShrink: 0, overflow: "hidden" }}>
+          <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80" alt="Brand story" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
         <div>
           <p style={{ fontSize: "10px", letterSpacing: "5px", color: "#888", textTransform: "uppercase", marginBottom: "16px" }}>Our Story</p>

@@ -21,8 +21,7 @@ function MockCopperheadBrew() {
       </div>
 
       {/* Hero */}
-      <div style={{ height: "560px", background: "linear-gradient(180deg, #0e0a04 0%, #1a1005 40%, #0e0a04 100%)", display: "flex", alignItems: "center", padding: "0 80px", position: "relative" }}>
-        <div style={{ position: "absolute", right: "80px", top: "50%", transform: "translateY(-50%)", width: "320px", height: "440px", background: "linear-gradient(180deg, #8a4e10 0%, #c17d2a 40%, #8a4e10 100%)", borderRadius: "160px 160px 0 0", opacity: 0.15 }} />
+      <div style={{ height: "560px", display: "flex", alignItems: "center", padding: "0 80px", backgroundImage: "linear-gradient(rgba(10,6,2,0.80),rgba(10,6,2,0.80)),url('https://images.unsplash.com/photo-1436076863939-06870fe779c2?auto=format&fit=crop&w=1400&q=80')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div style={{ maxWidth: "580px" }}>
           <p style={{ fontSize: "11px", letterSpacing: "6px", color: "#c17d2a", textTransform: "uppercase", marginBottom: "20px" }}>Est. 2011 · Nashville, TN</p>
           <h1 style={{ fontSize: "72px", fontWeight: "400", lineHeight: 0.9, marginBottom: "32px", letterSpacing: "2px" }}>
@@ -72,8 +71,8 @@ function MockCopperheadBrew() {
 
       {/* Taproom */}
       <div style={{ padding: "80px 48px", background: "#0e0a04", display: "flex", gap: "64px", alignItems: "center" }}>
-        <div style={{ flex: 1, height: "380px", background: "linear-gradient(135deg, #2a1a08 0%, #1a0d04 100%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ color: "#4a2a10", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase" }}>Taproom Photo</span>
+        <div style={{ flex: 1, height: "380px", overflow: "hidden", flexShrink: 0 }}>
+          <img src="https://images.unsplash.com/photo-1555658636-6e4a36218be7?auto=format&fit=crop&w=800&q=80" alt="The Taproom" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
         <div style={{ flex: 1 }}>
           <p style={{ fontSize: "11px", letterSpacing: "5px", color: "#c17d2a", textTransform: "uppercase", marginBottom: "16px" }}>East Nashville</p>

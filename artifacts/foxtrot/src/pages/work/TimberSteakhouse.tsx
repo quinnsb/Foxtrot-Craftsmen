@@ -18,8 +18,7 @@ function MockTimberSteakhouse() {
       </div>
 
       {/* Hero */}
-      <div style={{ height: "580px", background: "linear-gradient(180deg, #0a0704 0%, #1a0e05 30%, #0d0804 100%)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", position: "relative" }}>
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center bottom, rgba(193,125,42,0.12) 0%, transparent 60%)" }} />
+      <div style={{ height: "580px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", backgroundImage: "linear-gradient(rgba(6,4,2,0.78),rgba(6,4,2,0.78)),url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=80')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <p style={{ fontSize: "11px", letterSpacing: "7px", color: "#c17d2a", textTransform: "uppercase", marginBottom: "20px" }}>Est. 2015 · Portland, OR</p>
         <h1 style={{ fontSize: "88px", fontWeight: "400", letterSpacing: "12px", textTransform: "uppercase", marginBottom: "8px", lineHeight: 0.9 }}>Timber</h1>
         <h2 style={{ fontSize: "28px", fontWeight: "300", letterSpacing: "10px", color: "#8a6040", textTransform: "uppercase", marginBottom: "32px" }}>Steakhouse & Bar</h2>
@@ -35,9 +34,8 @@ function MockTimberSteakhouse() {
 
       {/* Signature Section */}
       <div style={{ padding: "80px 48px", background: "#0d0a06", display: "flex", gap: "64px", alignItems: "center" }}>
-        <div style={{ flex: 1, height: "400px", background: "linear-gradient(135deg, #2a1505 0%, #1a0d03 100%)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(193,125,42,0.1) 0%, transparent 70%)" }} />
-          <span style={{ color: "#4a2a10", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase" }}>Fire Photography</span>
+        <div style={{ flex: 1, height: "400px", overflow: "hidden", flexShrink: 0 }}>
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Open fire cooking" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
         <div style={{ flex: 1 }}>
           <p style={{ fontSize: "11px", letterSpacing: "5px", color: "#c17d2a", textTransform: "uppercase", marginBottom: "16px" }}>The Cut</p>
@@ -99,8 +97,8 @@ function MockTimberSteakhouse() {
             </div>
           </div>
         </div>
-        <div style={{ flex: 1, height: "380px", background: "linear-gradient(180deg, #1e1005 0%, #100804 100%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ color: "#3a2010", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase" }}>Bar Photography</span>
+        <div style={{ flex: 1, height: "380px", overflow: "hidden", flexShrink: 0 }}>
+          <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="The bar" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
       </div>
 

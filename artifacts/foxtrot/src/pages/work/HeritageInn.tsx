@@ -15,8 +15,7 @@ function MockHeritageInn() {
       </div>
 
       {/* Hero */}
-      <div style={{ height: "580px", background: "linear-gradient(180deg, #1a1205 0%, #2d1f08 50%, #1a1205 100%)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(201,168,76,0.15) 0%, transparent 70%)" }} />
+      <div style={{ height: "580px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", backgroundImage: "linear-gradient(rgba(8,5,2,0.72),rgba(8,5,2,0.72)),url('https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=1400&q=80')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div style={{ borderTop: "1px solid #c9a84c", borderBottom: "1px solid #c9a84c", padding: "12px 0", marginBottom: "24px", width: "200px" }}>
           <span style={{ fontSize: "10px", letterSpacing: "5px", color: "#c9a84c", textTransform: "uppercase" }}>Est. 1887 · Vermont</span>
         </div>
@@ -42,8 +41,8 @@ function MockHeritageInn() {
             { name: "Grand Manor Suite", price: "$895", size: "1,200 sq ft", color: "#1e1a10" },
           ].map((room) => (
             <div key={room.name} style={{ background: room.color, padding: "40px 32px" }}>
-              <div style={{ height: "180px", background: "linear-gradient(135deg, #2a2010 0%, #3d2e12 100%)", marginBottom: "24px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontSize: "11px", letterSpacing: "3px", color: "#c9a84c", textTransform: "uppercase" }}>View Room</span>
+              <div style={{ height: "180px", marginBottom: "24px", overflow: "hidden" }}>
+                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80" alt="Room" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#c9a84c", textTransform: "uppercase", marginBottom: "8px" }}>{room.size}</div>
               <h3 style={{ fontSize: "20px", fontWeight: "300", letterSpacing: "4px", textTransform: "uppercase", marginBottom: "16px" }}>{room.name}</h3>
@@ -69,8 +68,8 @@ function MockHeritageInn() {
           </div>
           <div style={{ border: "1px solid #c9a84c", color: "#c9a84c", padding: "12px 28px", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", display: "inline-block" }}>View Menu</div>
         </div>
-        <div style={{ flex: 1, height: "360px", background: "linear-gradient(135deg, #1a1205 0%, #2d2010 60%, #1a0d04 100%)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ fontSize: "11px", letterSpacing: "3px", color: "#c9a84c", textTransform: "uppercase" }}>The Hearthroom</span>
+        <div style={{ flex: 1, height: "360px", overflow: "hidden", flexShrink: 0 }}>
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="The Hearthroom" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
       </div>
 
