@@ -77,14 +77,14 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
 
-  /* Warm paper background */
-  --background: 43 33% 94%; 
+  /* Warm cream paper background */
+  --background: 43 33% 94%;
   /* Heavy ink foreground */
   --foreground: 0 0% 10%;
   --border: 0 0% 10%;
 
-  /* Pure white paper for cards */
-  --card: 0 0% 100%;
+  /* Steel blue card / section panels */
+  --card: 210 36% 91%;
   --card-foreground: 0 0% 10%;
   --card-border: 0 0% 10%;
 
@@ -93,46 +93,46 @@
   --sidebar-border: 0 0% 10%;
   --sidebar-primary: 0 0% 10%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 40 22% 88%;
+  --sidebar-accent: 210 30% 84%;
   --sidebar-accent-foreground: 0 0% 10%;
   --sidebar-ring: 0 0% 10%;
 
-  --popover: 0 0% 100%;
+  --popover: 210 36% 91%;
   --popover-foreground: 0 0% 10%;
   --popover-border: 0 0% 10%;
 
-  /* Rust / Ochre accent */
-  --primary: 14 70% 44%;
+  /* Brick terra cotta — primary action color */
+  --primary: 12 52% 48%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary / Slate */
-  --secondary: 40 22% 88%;
+  /* Steel blue — secondary / surface */
+  --secondary: 210 38% 68%;
   --secondary-foreground: 0 0% 10%;
 
-  --muted: 40 22% 88%;
-  --muted-foreground: 0 0% 35%;
+  --muted: 210 28% 84%;
+  --muted-foreground: 0 0% 32%;
 
-  --accent: 14 70% 44%;
-  --accent-foreground: 0 0% 100%;
+  --accent: 210 38% 68%;
+  --accent-foreground: 0 0% 10%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
   --input: 0 0% 10%;
-  --ring: 14 70% 44%;
-  --chart-1: 14 70% 44%;
-  --chart-2: 0 0% 10%;
-  --chart-3: 40 22% 88%;
-  --chart-4: 0 0% 35%;
-  --chart-5: 43 33% 94%;
+  --ring: 12 52% 48%;
+  --chart-1: 12 52% 48%;
+  --chart-2: 210 38% 68%;
+  --chart-3: 43 33% 94%;
+  --chart-4: 0 0% 10%;
+  --chart-5: 210 28% 84%;
 
   --app-font-sans: 'Oswald', sans-serif;
   --app-font-serif: 'Libre Baskerville', serif;
   --app-font-mono: Menlo, monospace;
-  
+
   /* NO ROUNDED CORNERS */
-  --radius: 0rem; 
-  
+  --radius: 0rem;
+
   /* Hard shadows */
   --shadow-2xs: 2px 2px 0px 0px hsl(0 0% 10%);
   --shadow-xs: 3px 3px 0px 0px hsl(0 0% 10%);
@@ -155,16 +155,16 @@
 }
 
 .dark {
-  /* Enforce light mode for the craftsman aesthetic even if dark mode is requested */
+  /* Enforce the same craftsman palette in dark mode */
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
   --opaque-button-border-intensity: -8;
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
-  --background: 43 33% 94%; 
+  --background: 43 33% 94%;
   --foreground: 0 0% 10%;
   --border: 0 0% 10%;
-  --card: 0 0% 100%;
+  --card: 210 36% 91%;
   --card-foreground: 0 0% 10%;
   --card-border: 0 0% 10%;
   --sidebar: 43 33% 94%;
@@ -172,29 +172,29 @@
   --sidebar-border: 0 0% 10%;
   --sidebar-primary: 0 0% 10%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 40 22% 88%;
+  --sidebar-accent: 210 30% 84%;
   --sidebar-accent-foreground: 0 0% 10%;
   --sidebar-ring: 0 0% 10%;
-  --popover: 0 0% 100%;
+  --popover: 210 36% 91%;
   --popover-foreground: 0 0% 10%;
   --popover-border: 0 0% 10%;
-  --primary: 14 70% 44%;
+  --primary: 12 52% 48%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 40 22% 88%;
+  --secondary: 210 38% 68%;
   --secondary-foreground: 0 0% 10%;
-  --muted: 40 22% 88%;
-  --muted-foreground: 0 0% 35%;
-  --accent: 14 70% 44%;
-  --accent-foreground: 0 0% 100%;
+  --muted: 210 28% 84%;
+  --muted-foreground: 0 0% 32%;
+  --accent: 210 38% 68%;
+  --accent-foreground: 0 0% 10%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   --input: 0 0% 10%;
-  --ring: 14 70% 44%;
-  --chart-1: 14 70% 44%;
-  --chart-2: 0 0% 10%;
-  --chart-3: 40 22% 88%;
-  --chart-4: 0 0% 35%;
-  --chart-5: 43 33% 94%;
+  --ring: 12 52% 48%;
+  --chart-1: 12 52% 48%;
+  --chart-2: 210 38% 68%;
+  --chart-3: 43 33% 94%;
+  --chart-4: 0 0% 10%;
+  --chart-5: 210 28% 84%;
 
   --shadow-2xs: 2px 2px 0px 0px hsl(0 0% 10%);
   --shadow-xs: 3px 3px 0px 0px hsl(0 0% 10%);
