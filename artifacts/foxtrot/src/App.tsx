@@ -4,6 +4,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import HeritageInn from "@/pages/work/HeritageInn";
+import IronAndOak from "@/pages/work/IronAndOak";
+import CopperheadBrew from "@/pages/work/CopperheadBrew";
+import ApexAlpine from "@/pages/work/ApexAlpine";
+import SterlingWright from "@/pages/work/SterlingWright";
+import TimberSteakhouse from "@/pages/work/TimberSteakhouse";
 
 const queryClient = new QueryClient();
 
@@ -11,6 +17,12 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/work/heritage-inn" component={HeritageInn} />
+      <Route path="/work/iron-and-oak" component={IronAndOak} />
+      <Route path="/work/copperhead-brew" component={CopperheadBrew} />
+      <Route path="/work/apex-alpine" component={ApexAlpine} />
+      <Route path="/work/sterling-wright" component={SterlingWright} />
+      <Route path="/work/timber-steakhouse" component={TimberSteakhouse} />
       <Route component={NotFound} />
     </Switch>
   );
