@@ -19,7 +19,7 @@ export default function SiteNav() {
         <a
           href="/"
           className="text-4xl text-foreground hover:text-primary transition-colors no-underline"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em" }}
+          style={{ fontFamily: "'TAYDumpling', sans-serif", letterSpacing: "0.05em" }}
           data-testid="nav-logo"
         >
           FOXTROT

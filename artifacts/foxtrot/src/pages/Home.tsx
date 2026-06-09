@@ -350,7 +350,7 @@ export default function Home() {
           <div>
             <span
               className="text-background/90 block mb-4"
-              style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2.5rem", letterSpacing: "0.05em" }}
+              style={{ fontFamily: "'TAYDumpling', sans-serif", fontSize: "2.5rem", letterSpacing: "0.05em" }}
             >
               FOXTROT
             </span>

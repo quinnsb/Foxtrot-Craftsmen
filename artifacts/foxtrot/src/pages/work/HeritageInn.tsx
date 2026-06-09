@@ -156,7 +156,7 @@ export default function HeritageInn() {
 
       <footer className="bg-foreground text-background py-12 px-4 sm:px-6 lg:px-8 border-t-8 border-primary mt-16">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <span className="text-background/90" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", letterSpacing: "0.05em" }}>FOXTROT</span>
+          <span className="text-background/90" style={{ fontFamily: "'TAYDumpling', sans-serif", fontSize: "2rem", letterSpacing: "0.05em" }}>FOXTROT</span>
           <p className="font-sans font-medium uppercase tracking-widest text-sm text-background/50">&copy; {new Date().getFullYear()} Foxtrot Agency. All Rights Reserved.</p>
         </div>
       </footer>
