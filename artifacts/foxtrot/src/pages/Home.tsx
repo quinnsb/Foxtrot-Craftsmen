@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, ChevronRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,12 +20,12 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const PORTFOLIO_PROJECTS = [
-  { id: 1, title: "The Heritage Inn", category: "Hospitality", image: "https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=800&q=80", slug: "heritage-inn" },
-  { id: 2, title: "Iron & Oak", category: "Retail E-Commerce", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80", slug: "iron-and-oak" },
-  { id: 3, title: "Copperhead Brew Co.", category: "Food & Beverage", image: "https://images.unsplash.com/photo-1436076863939-06870fe779c2?auto=format&fit=crop&w=800&q=80", slug: "copperhead-brew" },
-  { id: 4, title: "Apex Alpine", category: "Outdoor Brand", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80", slug: "apex-alpine" },
-  { id: 5, title: "Sterling & Wright", category: "Legal Services", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80", slug: "sterling-wright" },
-  { id: 6, title: "Timber Steakhouse", category: "Restaurant", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80", slug: "timber-steakhouse" },
+  { id: 1, title: "The Heritage Inn", category: "Hospitality", image: "/assets/portfolio-heritage-inn.png", slug: "heritage-inn" },
+  { id: 2, title: "Iron & Oak", category: "Retail E-Commerce", image: "/assets/portfolio-iron-and-oak.png", slug: "iron-and-oak" },
+  { id: 3, title: "Copperhead Brew Co.", category: "Food & Beverage", image: "/assets/portfolio-copperhead-brew.png", slug: "copperhead-brew" },
+  { id: 4, title: "Apex Alpine", category: "Outdoor Brand", image: "/assets/portfolio-apex-alpine.png", slug: "apex-alpine" },
+  { id: 5, title: "Sterling & Wright", category: "Legal Services", image: "/assets/portfolio-sterling-wright.png", slug: "sterling-wright" },
+  { id: 6, title: "Timber Steakhouse", category: "Restaurant", image: "/assets/portfolio-timber-steakhouse.png", slug: "timber-steakhouse" },
 ];
 
 const SERVICES = [
@@ -57,12 +57,12 @@ export default function Home() {
     form.reset();
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
-  const fadeUp = {
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };

@@ -62,7 +62,7 @@ function MockSterlingWright() {
           ].map((p, i) => (
             <div key={i} style={{ border: "1px solid #e5e0d0", padding: "36px", transition: "all 0.2s" }}>
               <div style={{ fontSize: "28px", marginBottom: "16px" }}>{p.icon}</div>
-              <h3 style={{ fontSize: "18px", fontWeight: "600", letterSpacing: "1px", marginBottom: "12px", textTransform: "uppercase", fontSize: "15px" }}>{p.area}</h3>
+              <h3 style={{ fontWeight: "600", letterSpacing: "1px", marginBottom: "12px", textTransform: "uppercase", fontSize: "15px" }}>{p.area}</h3>
               <p style={{ color: "#6a6a7e", fontSize: "14px", lineHeight: 1.8 }}>{p.desc}</p>
               <div style={{ marginTop: "24px", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", color: "#8a7d5a", borderBottom: "1px solid #8a7d5a", display: "inline-block", paddingBottom: "2px" }}>Learn More</div>
             </div>
