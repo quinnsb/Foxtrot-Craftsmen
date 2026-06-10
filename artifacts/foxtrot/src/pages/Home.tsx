@@ -379,7 +379,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-primary border-4 border-border flex items-center justify-center text-primary-foreground font-display font-bold uppercase tracking-tighter text-xl rotate-12 shadow-sm">
+            <div className="absolute -bottom-4 right-2 flex h-20 w-20 rotate-6 items-center justify-center border-4 border-border bg-primary font-display text-lg font-bold uppercase tracking-tight text-primary-foreground shadow-sm sm:-bottom-6 sm:-right-6 sm:h-24 sm:w-24 sm:rotate-12 sm:text-xl">
               Solid.
             </div>
           </div>

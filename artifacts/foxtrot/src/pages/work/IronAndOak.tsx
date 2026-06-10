@@ -1,107 +1,223 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, CircleUserRound, ShoppingCart } from "lucide-react";
 import { Link } from "wouter";
 import SiteNav from "@/components/SiteNav";
 import PortfolioPager from "@/components/PortfolioPager";
 
+const products = [
+  {
+    name: "waxed canvas chore coat",
+    price: "$285",
+    image: "https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "selvedge denim",
+    price: "$195",
+    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "leather riding gloves",
+    price: "$85",
+    image: "https://images.unsplash.com/photo-1517414628894-83d47b22f233?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "moto boot",
+    price: "$340",
+    image: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=900&q=80",
+  },
+];
+
+const journalEntries = [
+  {
+    title: "workshop notes / nov '23",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "the highway 1 run",
+    image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "log of the journey",
+    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "community & cold steel",
+    image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=80",
+  },
+];
+
+function GrainImage({ alt, className = "", src }: { alt: string; className?: string; src: string }) {
+  return (
+    <div className={`group relative overflow-hidden bg-[#d7c8aa] ${className}`}>
+      <img
+        alt={alt}
+        className="h-full w-full object-cover grayscale-[0.18] transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+        src={src}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-20 mix-blend-overlay"
+        style={{
+          backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0.12) 1px, transparent 1px)",
+          backgroundSize: "6px 6px",
+        }}
+      />
+    </div>
+  );
+}
+
 function MockIronAndOak() {
   return (
-    <div style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", background: "#fafafa", color: "#111", minHeight: "2600px" }}>
-      {/* Nav */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #e5e5e5", padding: "0 48px", height: "64px", display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: 0, zIndex: 10 }}>
-        <span style={{ fontSize: "18px", fontWeight: "700", letterSpacing: "4px", textTransform: "uppercase" }}>Iron & Oak</span>
-        <div style={{ display: "flex", gap: "32px", fontSize: "13px", letterSpacing: "1px", textTransform: "uppercase" }}>
-          <span>Men's</span><span>Women's</span><span>Accessories</span><span>Sale</span>
-        </div>
-        <div style={{ display: "flex", gap: "20px", fontSize: "13px" }}>
-          <span>Search</span><span>Account</span><span>Cart (0)</span>
-        </div>
-      </div>
-
-      {/* Hero Banner */}
-      <div style={{ height: "520px", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 80px", backgroundImage: "linear-gradient(rgba(10,10,10,0.82),rgba(10,10,10,0.82)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div>
-          <p style={{ fontSize: "11px", letterSpacing: "5px", color: "#888", textTransform: "uppercase", marginBottom: "16px" }}>New Arrivals — Fall Collection</p>
-          <h1 style={{ fontSize: "64px", fontWeight: "800", color: "#fff", lineHeight: 0.95, marginBottom: "24px", letterSpacing: "-2px" }}>Built<br/>to Last.</h1>
-          <p style={{ color: "#aaa", fontSize: "15px", lineHeight: 1.7, maxWidth: "380px", marginBottom: "36px" }}>Premium workwear and weekend gear for those who demand the best from their clothing.</p>
-          <div style={{ display: "flex", gap: "12px" }}>
-            <div style={{ background: "#fff", color: "#111", padding: "14px 32px", fontSize: "12px", letterSpacing: "3px", textTransform: "uppercase", fontWeight: "700" }}>Shop Men's</div>
-            <div style={{ border: "1px solid #555", color: "#fff", padding: "14px 32px", fontSize: "12px", letterSpacing: "3px", textTransform: "uppercase" }}>Shop Women's</div>
+    <div
+      className="min-h-[2700px] overflow-hidden bg-[#e8dcc4] text-[#161717]"
+      style={{ fontFamily: "Chivo, Arial, sans-serif" }}
+      data-testid="iron-oak-mock"
+    >
+      <header className="sticky top-0 z-20 bg-[#e8dcc4]/90 px-5 py-6 backdrop-blur-sm md:px-16">
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center">
+          <h1
+            className="text-5xl font-semibold lowercase leading-none tracking-[-0.04em] text-[#161717] md:text-7xl"
+            style={{ fontFamily: "'Bricolage Grotesque', Chivo, sans-serif" }}
+          >
+            iron & oak
+          </h1>
+          <nav className="mt-5 flex flex-wrap gap-x-6 gap-y-2 self-start text-sm lowercase">
+            {["shop", "story", "journal", "contact"].map((item, index) => (
+              <span
+                key={item}
+                className={`cursor-pointer transition-colors hover:text-[#75593e] ${index === 0 ? "font-bold text-[#161717]" : "text-[#444748]"}`}
+              >
+                {item}
+              </span>
+            ))}
+          </nav>
+          <div className="absolute right-0 top-3 flex gap-5 text-[#161717]">
+            <ShoppingCart className="h-5 w-5 stroke-[1.4]" />
+            <CircleUserRound className="h-5 w-5 stroke-[1.4]" />
           </div>
         </div>
-        <div style={{ width: "340px", height: "420px", overflow: "hidden", flexShrink: 0 }}>
-          <img src="https://images.unsplash.com/photo-1489987707849-cf21b4e87213?auto=format&fit=crop&w=600&q=80" alt="Fall collection" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-        </div>
-      </div>
+      </header>
 
-      {/* Category Strip */}
-      <div style={{ padding: "56px 48px", background: "#fff" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "12px" }}>
-          {[
-            { name: "Outerwear", color: "#1a1a1a" },
-            { name: "Trousers", color: "#2a2a2a" },
-            { name: "Footwear", color: "#333" },
-            { name: "Accessories", color: "#1f1f1f" },
-          ].map(cat => (
-            <div key={cat.name} style={{ background: cat.color, height: "280px", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "24px", cursor: "pointer" }}>
-              <p style={{ color: "#fff", fontSize: "18px", fontWeight: "700", letterSpacing: "1px", textTransform: "uppercase" }}>{cat.name}</p>
-              <p style={{ color: "#888", fontSize: "11px", letterSpacing: "2px", textTransform: "uppercase", marginTop: "6px" }}>Shop Now →</p>
+      <main className="pt-10">
+        <section className="mb-28 px-5 md:px-16">
+          <GrainImage
+            alt="Iron and Oak moto culture"
+            className="mx-auto aspect-[1.79] max-w-7xl"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPV7Wq_N5jOAmyJrm-hcXCEk0mTJfYM5kFh8qypgAfL_OQT_0ZdVNU3d1_jB9P3OJnUxCdqueyQRgcjfl9NeFxuEi6chWolYepnp3IRxkY7r61Vf5CEm4PBdDYfDdAWtCpj_il_UbwOB96XL4iEH8jhbh6q795DeFAC6K6BdGYsYffIHZXR6q3Ecm5Byn6qCJlk1q1eCEwesRSxN0gBR0xQxp-gO1cn-e3rXaN7gtvzQRmW2UAgtbjzdGAtXPVY14Esripuh9v62Q"
+          />
+          <div className="mx-auto mt-12 max-w-7xl">
+            <div className="max-w-2xl">
+              <h2
+                className="mb-4 text-5xl font-semibold lowercase leading-tight tracking-[-0.04em]"
+                style={{ fontFamily: "'Bricolage Grotesque', Chivo, sans-serif" }}
+              >
+                iron & oak
+              </h2>
+              <p className="mb-8 text-lg font-light italic leading-8 text-[#444748]">Made for the ride. Built to outlast it.</p>
+              <button className="border-b border-[#161717] pb-1 text-sm font-medium lowercase transition-colors hover:border-[#75593e] hover:text-[#75593e]">
+                Shop the Collection
+              </button>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </section>
 
-      {/* Featured Products */}
-      <div style={{ padding: "56px 48px", background: "#f5f5f5" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "40px" }}>
-          <h2 style={{ fontSize: "28px", fontWeight: "800", letterSpacing: "-1px", textTransform: "uppercase" }}>Best Sellers</h2>
-          <span style={{ fontSize: "12px", letterSpacing: "2px", textTransform: "uppercase", borderBottom: "1px solid #111" }}>View All</span>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "24px" }}>
-          {[
-            { name: "Deadwood Canvas Jacket", price: "$298", tag: "Bestseller" },
-            { name: "Ironclad Work Trouser", price: "$148", tag: "New" },
-            { name: "Roughneck Boot", price: "$365", tag: "" },
-            { name: "Field Flannel Shirt", price: "$128", tag: "Bestseller" },
-            { name: "Workhorse Tote", price: "$195", tag: "New" },
-            { name: "Foreman Wallet", price: "$89", tag: "" },
-          ].map((p, i) => (
-            <div key={i} style={{ background: "#fff" }}>
-              <div style={{ height: "280px", background: `hsl(${i * 30}, 8%, ${85 - i * 3}%)`, display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-                {p.tag && <div style={{ position: "absolute", top: "12px", left: "12px", background: "#111", color: "#fff", fontSize: "10px", letterSpacing: "2px", padding: "4px 10px", textTransform: "uppercase" }}>{p.tag}</div>}
-                <span style={{ color: "#aaa", fontSize: "11px", letterSpacing: "2px", textTransform: "uppercase" }}>Product</span>
-              </div>
-              <div style={{ padding: "16px" }}>
-                <p style={{ fontSize: "13px", fontWeight: "600", letterSpacing: "0.5px", marginBottom: "4px" }}>{p.name}</p>
-                <p style={{ fontSize: "13px", color: "#555" }}>{p.price}</p>
-              </div>
+        <section className="mb-28 px-5 md:px-16">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {products.map((product) => (
+              <article key={product.name} className="flex flex-col gap-4">
+                <GrainImage alt={product.name} className="aspect-square" src={product.image} />
+                <div className="flex flex-col items-start">
+                  <span className="text-base lowercase text-[#161717]">{product.name}</span>
+                  <span className="text-base lowercase text-[#444748]/75">{product.price}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-28">
+          <div className="px-5 md:px-16">
+            <h3
+              className="mb-8 text-3xl font-medium lowercase tracking-[-0.02em]"
+              style={{ fontFamily: "'Bricolage Grotesque', Chivo, sans-serif" }}
+            >
+              the central coast journal
+            </h3>
+          </div>
+          <div className="flex gap-6 overflow-x-auto px-5 pb-8 md:px-16" style={{ scrollbarWidth: "none" }}>
+            {journalEntries.map((entry, index) => (
+              <article key={entry.title} className={`${index === 0 ? "w-[520px]" : "w-[420px]"} max-w-[78vw] flex-none`}>
+                <GrainImage alt={entry.title} className="aspect-[3/4]" src={entry.image} />
+                <p className="mt-4 text-sm lowercase italic text-[#444748]">{entry.title}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="relative mb-28 h-[520px] overflow-hidden">
+          <GrainImage
+            alt="Weathered leather motorcycle gloves"
+            className="h-full w-full"
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80"
+          />
+          <div className="absolute inset-0 flex items-center justify-center bg-[#161717]/25 px-5 text-center">
+            <h3
+              className="max-w-2xl text-4xl font-medium lowercase leading-tight tracking-[-0.04em] text-white md:text-5xl"
+              style={{ fontFamily: "'Bricolage Grotesque', Chivo, sans-serif" }}
+            >
+              the tools of the trade. built for the miles.
+            </h3>
+          </div>
+        </section>
+
+        <section className="bg-[#ebe7e7]/35 px-5 py-24 md:px-16">
+          <div className="max-w-xl">
+            <h3
+              className="mb-6 text-3xl font-medium lowercase tracking-[-0.02em]"
+              style={{ fontFamily: "'Bricolage Grotesque', Chivo, sans-serif" }}
+            >
+              sign up for the logbook.
+            </h3>
+            <p className="mb-8 text-base lowercase leading-7 text-[#444748]">updates on small batch releases, stories from the road, and garage sessions.</p>
+            <form className="flex items-center gap-4 border-b border-[#161717] pb-2">
+              <input
+                aria-label="Email address"
+                className="w-full border-none bg-transparent text-base lowercase text-[#161717] outline-none placeholder:text-[#444748]/50"
+                placeholder="your email address"
+                type="email"
+              />
+              <button aria-label="Submit email" className="text-[#161717] transition-colors hover:text-[#75593e]" type="button">
+                <ArrowRight className="h-5 w-5" />
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-[#e5e2e1] px-5 pb-8 pt-16 md:px-16">
+        <div className="mx-auto flex max-w-7xl flex-col items-start gap-8">
+          <span
+            className="text-3xl font-medium lowercase tracking-[-0.04em] text-[#161717]"
+            style={{ fontFamily: "'Bricolage Grotesque', Chivo, sans-serif" }}
+          >
+            iron & oak
+          </span>
+          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="flex flex-col gap-2">
+              {["instagram", "pinterest", "newsletter signup"].map((item) => <span key={item} className="lowercase text-[#444748]">{item}</span>)}
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Brand Story */}
-      <div style={{ padding: "80px 48px", background: "#111", color: "#fff", display: "flex", gap: "80px", alignItems: "center" }}>
-        <div style={{ width: "400px", height: "400px", flexShrink: 0, overflow: "hidden" }}>
-          <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80" alt="Brand story" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-        </div>
-        <div>
-          <p style={{ fontSize: "10px", letterSpacing: "5px", color: "#888", textTransform: "uppercase", marginBottom: "16px" }}>Our Story</p>
-          <h2 style={{ fontSize: "42px", fontWeight: "800", letterSpacing: "-1px", marginBottom: "24px", lineHeight: 1.1 }}>Made in the USA.<br/>No Shortcuts.</h2>
-          <p style={{ color: "#aaa", fontSize: "15px", lineHeight: 1.9, marginBottom: "32px" }}>Since 2008, Iron & Oak has crafted workwear and weekend essentials using American-milled materials and time-tested construction methods. We build things to be worn, not just worn out.</p>
-          <div style={{ display: "inline-block", border: "1px solid #555", color: "#fff", padding: "12px 28px", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase" }}>Our Story</div>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div style={{ background: "#0a0a0a", color: "#555", padding: "48px", borderTop: "1px solid #222" }}>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <span style={{ fontWeight: "800", fontSize: "18px", letterSpacing: "4px", textTransform: "uppercase", color: "#fff" }}>Iron & Oak</span>
-          <div style={{ display: "flex", gap: "32px", fontSize: "12px", letterSpacing: "1px", textTransform: "uppercase" }}>
-            <span>Shipping & Returns</span><span>Size Guide</span><span>Contact</span>
+            <div className="flex flex-col gap-2">
+              {["shipping & returns", "size guide", "privacy policy"].map((item) => <span key={item} className="lowercase text-[#444748]">{item}</span>)}
+            </div>
+            <div className="flex flex-col gap-2">
+              <p className="lowercase text-[#444748]">1248 industrial way</p>
+              <p className="lowercase text-[#444748]">san luis obispo, ca</p>
+            </div>
+          </div>
+          <div className="w-full border-t border-[#c4c7c7]/70 pt-8">
+            <p className="lowercase text-[#444748]">© 2024 iron & oak menswear. small batch quality.</p>
           </div>
         </div>
-        <div style={{ marginTop: "32px", fontSize: "11px", letterSpacing: "1px" }}>&copy; 2024 Iron & Oak. All Rights Reserved.</div>
-      </div>
+      </footer>
     </div>
   );
 }
@@ -111,25 +227,25 @@ export default function IronAndOak() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteNav />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <Link
           href="/#work"
-          className="inline-flex items-center gap-2 font-sans font-bold uppercase tracking-widest text-sm hover:text-primary transition-colors mb-12 group"
+          className="mb-12 inline-flex items-center gap-2 font-sans text-sm font-bold uppercase tracking-widest transition-colors hover:text-primary group"
           data-testid="back-link"
         >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           All Work
         </Link>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-16">
+        <div className="mb-16 grid grid-cols-1 gap-16 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <p className="text-xs font-sans font-bold text-primary uppercase tracking-widest mb-4">Retail E-Commerce</p>
-            <h1 className="text-6xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-none mb-6">Iron & Oak</h1>
-            <p className="font-serif text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              A made-in-America apparel brand needed an e-commerce experience as uncompromising as their product. We built a clean, editorial storefront that lets the goods speak for themselves — no noise, no gimmicks, just product and purpose.
+            <p className="mb-4 text-xs font-sans font-bold uppercase tracking-widest text-primary">Retail E-Commerce</p>
+            <h1 className="mb-6 font-display text-6xl font-bold uppercase leading-none tracking-tighter md:text-7xl">Iron & Oak</h1>
+            <p className="max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground">
+              A small-batch menswear label needed a storefront that felt tactile, lived-in, and road-tested. We built an analog-inspired retail experience around waxed canvas, moto culture, product texture, and journal-driven storytelling.
             </p>
           </div>
-          <div className="border-l-4 border-border pl-8 flex flex-col gap-6 justify-center">
+          <div className="flex flex-col justify-center gap-6 border-l-4 border-border pl-8">
             {[
               { label: "Client", value: "Iron & Oak Goods Co." },
               { label: "Category", value: "Retail E-Commerce" },
@@ -137,21 +253,21 @@ export default function IronAndOak() {
               { label: "Deliverables", value: "Website Design, E-Commerce Development, Product Photography Art Direction" },
             ].map(({ label, value }) => (
               <div key={label}>
-                <p className="text-xs font-sans font-bold text-primary uppercase tracking-widest mb-1">{label}</p>
+                <p className="mb-1 text-xs font-sans font-bold uppercase tracking-widest text-primary">{label}</p>
                 <p className="font-serif text-sm text-foreground">{value}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="border-4 border-border shadow-md overflow-hidden">
-          <div className="bg-muted border-b-2 border-border px-4 py-3 flex items-center gap-3">
+        <div className="overflow-hidden border-4 border-border shadow-md">
+          <div className="flex items-center gap-3 border-b-2 border-border bg-muted px-4 py-3">
             <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-border opacity-50" />
-              <div className="w-3 h-3 rounded-full bg-border opacity-50" />
-              <div className="w-3 h-3 rounded-full bg-primary opacity-70" />
+              <div className="h-3 w-3 rounded-full bg-border opacity-50" />
+              <div className="h-3 w-3 rounded-full bg-border opacity-50" />
+              <div className="h-3 w-3 rounded-full bg-primary opacity-70" />
             </div>
-            <div className="flex-1 bg-background border border-border px-3 py-1 text-xs font-mono text-muted-foreground">
+            <div className="flex-1 border border-border bg-background px-3 py-1 font-mono text-xs text-muted-foreground">
               www.ironandoakgoods.com
             </div>
           </div>
@@ -163,10 +279,10 @@ export default function IronAndOak() {
         <PortfolioPager slug="iron-and-oak" />
       </div>
 
-      <footer className="bg-foreground text-background py-12 px-4 sm:px-6 lg:px-8 border-t-8 border-primary mt-16">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="mt-16 border-t-8 border-primary bg-foreground px-4 py-12 text-background sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
           <span className="text-background/90" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", letterSpacing: "0.05em" }}>FOXTROT</span>
-          <p className="font-sans font-medium uppercase tracking-widest text-sm text-background/50">&copy; {new Date().getFullYear()} Foxtrot Agency. All Rights Reserved.</p>
+          <p className="font-sans text-sm font-medium uppercase tracking-widest text-background/50">&copy; {new Date().getFullYear()} Foxtrot Agency. All Rights Reserved.</p>
         </div>
       </footer>
     </div>

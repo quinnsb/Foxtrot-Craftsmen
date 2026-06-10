@@ -1,100 +1,213 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, Flame, Leaf, Mountain, Sparkles, UtensilsCrossed } from "lucide-react";
 import { Link } from "wouter";
 import SiteNav from "@/components/SiteNav";
 import PortfolioPager from "@/components/PortfolioPager";
 
+const heritageRooms = [
+  {
+    name: "Heritage Suite",
+    price: "$550",
+    image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80",
+    description: "King suite with a fieldstone hearth, writing alcove, and private mountain-facing terrace.",
+  },
+  {
+    name: "Forest View Deluxe",
+    price: "$420",
+    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=900&q=80",
+    description: "Quiet oak-lined room with linen bedding, deep window seats, and views into the maple woods.",
+  },
+  {
+    name: "Garden Vista Loft",
+    price: "$480",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80",
+    description: "A lofted retreat with aged brass fixtures, soaking bath, and direct access to the garden walk.",
+  },
+];
+
+const heritageAmenities = [
+  { icon: UtensilsCrossed, title: "Artisan Dining", text: "Farm-to-table cuisine sourced from local Vermont valleys." },
+  { icon: Sparkles, title: "Luxury Spa", text: "Restorative treatments inspired by the quiet of the woods." },
+  { icon: Mountain, title: "Mountain Trails", text: "Private access to winding paths through ancient maple groves." },
+];
+
 function MockHeritageInn() {
   return (
-    <div style={{ fontFamily: "Georgia, serif", background: "#0a0a0a", color: "#f5f0e8", minHeight: "2400px" }}>
-      {/* Fake Nav */}
-      <div style={{ background: "rgba(10,10,10,0.9)", borderBottom: "1px solid #c9a84c", padding: "16px 40px", display: "flex", justifyContent: "space-between", alignItems: "center", position: "sticky", top: 0, zIndex: 10 }}>
-        <span style={{ fontFamily: "'Times New Roman', serif", fontSize: "20px", letterSpacing: "6px", textTransform: "uppercase", color: "#c9a84c" }}>The Heritage Inn</span>
-        <div style={{ display: "flex", gap: "32px", fontSize: "12px", letterSpacing: "3px", textTransform: "uppercase", color: "#c9a84c" }}>
-          <span>Rooms</span><span>Dining</span><span>Spa</span><span>Events</span>
+    <div
+      className="min-h-[2550px] overflow-hidden bg-[#fcf9f8] text-[#1b1c1c]"
+      style={{ fontFamily: "Montserrat, Arial, sans-serif" }}
+      data-testid="heritage-mock"
+    >
+      <nav className="sticky top-0 z-20 flex items-center justify-between border-b border-white/20 bg-[#061b0e]/95 px-5 py-4 text-white backdrop-blur md:px-12">
+        <div className="min-w-0">
+          <p className="truncate text-lg font-semibold tracking-tight md:text-2xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+            THE HERITAGE INN
+          </p>
+          <p className="hidden text-[10px] uppercase tracking-[0.28em] text-[#c5a059] sm:block">Stowe, Vermont</p>
         </div>
-        <div style={{ background: "#c9a84c", color: "#0a0a0a", padding: "10px 24px", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", fontWeight: "bold", cursor: "pointer" }}>Book Now</div>
-      </div>
+        <div className="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.24em] md:flex">
+          <span>Rooms</span>
+          <span>Dining</span>
+          <span>Spa</span>
+          <span>Events</span>
+        </div>
+        <button className="shrink-0 bg-[#c5a059] px-5 py-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#061b0e] transition-colors hover:bg-white">
+          Reserve
+        </button>
+      </nav>
 
-      {/* Hero */}
-      <div style={{ height: "580px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", backgroundImage: "linear-gradient(rgba(8,5,2,0.72),rgba(8,5,2,0.72)),url('https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=1400&q=80')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ borderTop: "1px solid #c9a84c", borderBottom: "1px solid #c9a84c", padding: "12px 0", marginBottom: "24px", width: "200px" }}>
-          <span style={{ fontSize: "10px", letterSpacing: "5px", color: "#c9a84c", textTransform: "uppercase" }}>Est. 1887 · Vermont</span>
-        </div>
-        <h1 style={{ fontSize: "72px", fontWeight: "300", letterSpacing: "12px", textTransform: "uppercase", marginBottom: "16px", lineHeight: 1 }}>The Heritage</h1>
-        <h1 style={{ fontSize: "72px", fontWeight: "300", letterSpacing: "12px", textTransform: "uppercase", marginBottom: "32px", lineHeight: 1, color: "#c9a84c" }}>Inn</h1>
-        <p style={{ fontSize: "14px", letterSpacing: "3px", color: "#a89070", textTransform: "uppercase", maxWidth: "400px", lineHeight: 1.8 }}>A timeless retreat in the heart of the Green Mountains</p>
-        <div style={{ marginTop: "48px", display: "flex", gap: "16px" }}>
-          <div style={{ background: "#c9a84c", color: "#0a0a0a", padding: "14px 36px", fontSize: "12px", letterSpacing: "3px", textTransform: "uppercase", fontWeight: "bold" }}>Reserve a Room</div>
-          <div style={{ border: "1px solid #c9a84c", color: "#c9a84c", padding: "14px 36px", fontSize: "12px", letterSpacing: "3px", textTransform: "uppercase" }}>Explore the Property</div>
-        </div>
-      </div>
-
-      {/* Rooms Section */}
-      <div style={{ padding: "80px 40px", background: "#0f0e0b" }}>
-        <div style={{ textAlign: "center", marginBottom: "56px" }}>
-          <span style={{ fontSize: "10px", letterSpacing: "5px", color: "#c9a84c", textTransform: "uppercase" }}>Accommodations</span>
-          <h2 style={{ fontSize: "42px", fontWeight: "300", letterSpacing: "8px", textTransform: "uppercase", marginTop: "12px" }}>Our Rooms & Suites</h2>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "2px" }}>
-          {[
-            { name: "Classic Room", price: "$295", size: "340 sq ft", color: "#1e1a10" },
-            { name: "Heritage Suite", price: "$495", size: "680 sq ft", color: "#1a1508" },
-            { name: "Grand Manor Suite", price: "$895", size: "1,200 sq ft", color: "#1e1a10" },
-          ].map((room) => (
-            <div key={room.name} style={{ background: room.color, padding: "40px 32px" }}>
-              <div style={{ height: "180px", marginBottom: "24px", overflow: "hidden" }}>
-                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80" alt="Room" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              </div>
-              <div style={{ fontSize: "10px", letterSpacing: "4px", color: "#c9a84c", textTransform: "uppercase", marginBottom: "8px" }}>{room.size}</div>
-              <h3 style={{ fontSize: "20px", fontWeight: "300", letterSpacing: "4px", textTransform: "uppercase", marginBottom: "16px" }}>{room.name}</h3>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ color: "#c9a84c", fontSize: "24px", fontWeight: "300" }}>{room.price}<span style={{ fontSize: "12px", letterSpacing: "2px", color: "#a89070" }}> / night</span></span>
-                <span style={{ fontSize: "10px", letterSpacing: "3px", color: "#c9a84c", textTransform: "uppercase", borderBottom: "1px solid #c9a84c" }}>Book</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Dining */}
-      <div style={{ padding: "80px 40px", background: "#0a0a0a", display: "flex", gap: "80px", alignItems: "center" }}>
-        <div style={{ flex: 1 }}>
-          <span style={{ fontSize: "10px", letterSpacing: "5px", color: "#c9a84c", textTransform: "uppercase" }}>The Hearthroom</span>
-          <h2 style={{ fontSize: "38px", fontWeight: "300", letterSpacing: "6px", textTransform: "uppercase", marginTop: "12px", marginBottom: "24px" }}>Farm-to-Table Dining</h2>
-          <p style={{ color: "#a89070", lineHeight: 2, fontSize: "15px", marginBottom: "32px" }}>Our award-winning restaurant sources ingredients from local Vermont farms and foragers. Chef Marcus Ellroy presents a menu that honors regional tradition while pushing the boundaries of seasonal cuisine.</p>
-          <div style={{ display: "flex", gap: "32px", marginBottom: "40px" }}>
-            {["Breakfast 7–10am", "Lunch 12–2pm", "Dinner 6–9pm"].map(h => (
-              <div key={h} style={{ fontSize: "11px", letterSpacing: "2px", color: "#c9a84c", textTransform: "uppercase" }}>{h}</div>
-            ))}
+      <header className="relative flex min-h-[680px] items-center justify-center overflow-hidden px-5 text-center text-white">
+        <img
+          alt="The Heritage Inn exterior at twilight"
+          className="absolute inset-0 h-full w-full object-cover"
+          src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1600&q=80"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#061b0e]/45 via-[#061b0e]/55 to-[#061b0e]/85" />
+        <div className="relative z-10 max-w-4xl">
+          <p className="mb-8 text-[11px] font-semibold uppercase tracking-[0.36em] text-[#c5a059]">Est. 1887 · Green Mountains</p>
+          <h1 className="mb-10 text-5xl font-bold leading-[1.08] md:text-7xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+            Timeless Comfort in the <span className="italic text-[#c5a059]">Heart</span> of Vermont
+          </h1>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <button className="min-h-14 min-w-56 bg-[#c5a059] px-8 text-[12px] font-bold uppercase tracking-[0.22em] text-[#061b0e] transition-colors hover:bg-white">
+              Reserve a Room
+            </button>
+            <button className="min-h-14 min-w-56 border border-white px-8 text-[12px] font-bold uppercase tracking-[0.22em] text-white transition-colors hover:bg-white hover:text-[#061b0e]">
+              Explore the Property
+            </button>
           </div>
-          <div style={{ border: "1px solid #c9a84c", color: "#c9a84c", padding: "12px 28px", fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", display: "inline-block" }}>View Menu</div>
         </div>
-        <div style={{ flex: 1, height: "360px", overflow: "hidden", flexShrink: 0 }}>
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="The Hearthroom" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <div className="absolute bottom-9 left-1/2 hidden -translate-x-1/2 flex-col items-center text-white/65 md:flex">
+          <span className="mb-2 text-[10px] uppercase tracking-[0.28em]">Scroll</span>
+          <ArrowRight className="h-5 w-5 rotate-90" />
         </div>
-      </div>
+      </header>
 
-      {/* Amenities */}
-      <div style={{ padding: "80px 40px", background: "#0d0b07", textAlign: "center" }}>
-        <span style={{ fontSize: "10px", letterSpacing: "5px", color: "#c9a84c", textTransform: "uppercase" }}>The Full Experience</span>
-        <h2 style={{ fontSize: "38px", fontWeight: "300", letterSpacing: "6px", textTransform: "uppercase", marginTop: "12px", marginBottom: "56px" }}>Estate Amenities</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "40px" }}>
-          {["Spa & Wellness", "Heated Pool", "Equestrian Center", "Private Wine Cellar", "Fly Fishing", "Clay Shooting", "Mountain Trails", "Event Spaces"].map(a => (
-            <div key={a} style={{ borderTop: "1px solid #3a3020", paddingTop: "24px" }}>
-              <div style={{ width: "40px", height: "40px", border: "1px solid #c9a84c", margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ color: "#c9a84c", fontSize: "18px" }}>◆</span>
-              </div>
-              <p style={{ fontSize: "11px", letterSpacing: "3px", textTransform: "uppercase", color: "#c9a84c" }}>{a}</p>
+      <section className="border-b border-[#c3c8c1]/60 bg-[#fcf9f8] px-5 py-16 md:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 text-center md:grid-cols-3">
+          {heritageAmenities.map(({ icon: Icon, title, text }) => (
+            <div key={title} className="flex flex-col items-center">
+              <Icon className="mb-5 h-10 w-10 stroke-[1.4] text-[#061b0e]" />
+              <h2 className="mb-3 text-[12px] font-bold uppercase tracking-[0.26em] text-[#061b0e]">{title}</h2>
+              <p className="max-w-[280px] text-sm leading-7 text-[#434843]">{text}</p>
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* Footer */}
-      <div style={{ background: "#060504", borderTop: "1px solid #c9a84c", padding: "48px 40px", textAlign: "center" }}>
-        <div style={{ fontSize: "13px", letterSpacing: "8px", textTransform: "uppercase", color: "#c9a84c", marginBottom: "16px" }}>The Heritage Inn</div>
-        <div style={{ fontSize: "11px", letterSpacing: "2px", color: "#5a4a30", textTransform: "uppercase" }}>124 Mountain Road · Stowe, Vermont · (802) 555-0194</div>
-      </div>
+      <section className="bg-[#fcf9f8] px-5 py-20 md:px-12 md:py-28">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <div className="mb-8 h-px w-14 bg-[#c5a059]" />
+            <h2 className="mb-8 text-4xl font-semibold leading-tight text-[#061b0e] md:text-6xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+              Refinement Reclaimed
+            </h2>
+            <p className="mb-10 text-base leading-8 text-[#434843] md:text-lg">
+              Nestled within the misty peaks of the Green Mountains, The Heritage Inn stands as a testament to architectural grace and Vermont's enduring warmth. Here, luxury is not a statement. It is a feeling of home, crafted with stone, wood, and fire.
+            </p>
+            <button className="group inline-flex items-center gap-3 border-b border-[#061b0e] pb-1 text-[12px] font-bold uppercase tracking-[0.24em] text-[#061b0e] transition-colors hover:border-[#c5a059] hover:text-[#c5a059]">
+              Our Heritage
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
+          </div>
+          <div className="md:col-span-6 md:col-start-7">
+            <div className="aspect-[4/5] overflow-hidden">
+              <img
+                alt="Warm stone fireplace inside The Heritage Inn"
+                className="h-full w-full object-cover"
+                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=80"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f0eded] px-5 py-20 md:px-12 md:py-28">
+        <div className="mx-auto mb-14 max-w-4xl text-center">
+          <h2 className="mb-4 text-4xl font-semibold text-[#061b0e] md:text-5xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+            Sanctuaries of Rest
+          </h2>
+          <p className="text-[12px] font-semibold uppercase tracking-[0.32em] text-[#737973]">Selected Suites & Rooms</p>
+        </div>
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-3">
+          {heritageRooms.map((room) => (
+            <article key={room.name} className="group bg-[#061b0e] text-white">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <img
+                  alt={`${room.name} interior`}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src={room.image}
+                />
+                <div className="absolute inset-0 bg-[#061b0e]/20 transition-colors duration-500 group-hover:bg-[#061b0e]/45" />
+                <div className="absolute inset-x-0 bottom-0 p-7">
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#c5a059]">From {room.price} / Night</p>
+                  <h3 className="mb-3 text-3xl font-semibold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+                    {room.name}
+                  </h3>
+                  <p className="text-sm leading-6 text-white/75">{room.description}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="grid grid-cols-1 bg-[#061b0e] text-white md:grid-cols-2">
+        <div className="min-h-[440px]">
+          <img
+            alt="Farm-to-table dining room"
+            className="h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=80"
+          />
+        </div>
+        <div className="flex items-center px-5 py-16 md:px-14">
+          <div>
+            <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.32em] text-[#c5a059]">The Hearthroom</p>
+            <h2 className="mb-7 text-4xl font-semibold md:text-5xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+              Farm-to-Table Dining
+            </h2>
+            <p className="mb-8 max-w-xl text-base leading-8 text-white/70">
+              Local farms, foraged mushrooms, orchard fruit, and cellar-aged wines shape a dining room that feels both historic and quietly modern.
+            </p>
+            <div className="grid grid-cols-1 gap-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#c5a059] sm:grid-cols-3">
+              <span>Breakfast 7-10</span>
+              <span>Lunch 12-2</span>
+              <span>Dinner 6-9</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-[#061b0e] px-5 py-20 text-center text-white md:px-12 md:py-28">
+        <Leaf className="absolute -right-12 top-10 h-64 w-64 stroke-[0.4] text-[#c5a059]/15" />
+        <div className="relative z-10 mx-auto max-w-3xl">
+          <Flame className="mx-auto mb-8 h-10 w-10 stroke-[1.2] text-[#c5a059]" />
+          <h2 className="mb-8 text-4xl font-semibold leading-tight text-[#c5a059] md:text-5xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+            Begin Your Journey Into the Quiet Wild
+          </h2>
+          <p className="mx-auto mb-10 max-w-xl text-base leading-8 text-[#b4cdb8]">
+            Reserve your escape and experience the timeless seasonal beauty of our Vermont estate.
+          </p>
+          <button className="inline-flex min-h-14 items-center gap-3 bg-[#c5a059] px-9 text-[12px] font-bold uppercase tracking-[0.24em] text-[#061b0e] transition-colors hover:bg-white">
+            <CalendarDays className="h-4 w-4" />
+            Book Your Stay
+          </button>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10 bg-[#041109] px-5 py-12 text-white md:px-12">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="mb-2 text-3xl font-semibold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>THE HERITAGE INN</p>
+            <p className="text-sm text-white/55">1200 Heritage Way, Stowe, Vermont 05672</p>
+          </div>
+          <div className="flex flex-wrap gap-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/70">
+            <span>Rooms</span>
+            <span>Dining</span>
+            <span>Spa</span>
+            <span>Events</span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

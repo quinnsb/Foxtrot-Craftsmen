@@ -30,7 +30,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     slug: "iron-and-oak",
     client: "Iron & Oak Goods Co.",
     year: "2024",
-    summary: "A clean, editorial storefront for a made-in-America apparel brand built around product clarity and purpose.",
+    summary: "A tactile menswear storefront built around waxed canvas, moto culture, product texture, and small-batch storytelling.",
     deliverables: "Website Design, E-Commerce Development, Product Photography Art Direction",
   },
   {
@@ -52,8 +52,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     slug: "apex-alpine",
     client: "Apex Alpine Gear",
     year: "2024",
-    summary: "A rugged technical storefront for alpine gear, built to feel direct, bold, and field-tested.",
-    deliverables: "Website Design, E-Commerce, Product Taxonomy, Email Marketing",
+    summary: "A data-forward climbing system built around technical specs, alpine testing, and uncompromising product confidence.",
+    deliverables: "Website Design, E-Commerce, Product Taxonomy, Technical Data System",
   },
   {
     id: 5,
@@ -68,14 +68,14 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   },
   {
     id: 6,
-    title: "Timber Steakhouse",
-    category: "Restaurant",
-    image: "/assets/portfolio-timber-steakhouse.png",
-    slug: "timber-steakhouse",
-    client: "Timber Steakhouse & Bar",
+    title: "sōko coffee",
+    category: "Specialty Coffee",
+    image: "/assets/portfolio-soko-coffee.png",
+    slug: "soko-coffee",
+    client: "sōko coffee",
     year: "2024",
-    summary: "An atmospheric restaurant site designed around mood, menu clarity, and reservation momentum.",
-    deliverables: "Website Design, Reservation Integration, Menu CMS, Email Capture",
+    summary: "A quiet, precise coffee storefront built around ritual, negative space, and a calmer path to ordering.",
+    deliverables: "Website Design, Retail UX, Menu System, Editorial Direction",
   },
 ];
 
