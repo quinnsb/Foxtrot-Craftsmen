@@ -14,18 +14,17 @@ export default function SiteNav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b-4 border-border">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <a
           href="/"
-          className="text-4xl text-foreground hover:text-primary transition-colors no-underline"
-          style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em" }}
+          className="font-sans text-3xl font-semibold uppercase tracking-tight text-foreground no-underline transition-colors hover:text-primary"
           data-testid="nav-logo"
         >
           FOXTROT
         </a>
 
-        <nav className="flex items-center gap-6 md:gap-10 font-display font-medium uppercase text-sm tracking-widest">
+        <nav className="flex items-center gap-6 font-mono text-[11px] font-medium uppercase tracking-tight md:gap-10">
           <button
             onClick={() => navTo("work")}
             className="hover:text-primary transition-colors"
@@ -49,7 +48,7 @@ export default function SiteNav() {
           </button>
           <Button
             onClick={() => navTo("contact")}
-            className="rounded-none border-2 border-border shadow-xs hover:shadow-sm font-display uppercase font-bold tracking-widest"
+            className="h-10 rounded-none border border-border px-5 font-mono text-[11px] font-medium uppercase tracking-tight shadow-none hover:shadow-xs"
             data-testid="nav-cta"
           >
             Start Project
