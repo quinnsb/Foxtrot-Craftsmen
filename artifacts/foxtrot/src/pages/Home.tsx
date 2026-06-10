@@ -172,33 +172,9 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             src="/assets/foxtrot-logo-full.png"
             alt="Foxtrot Quality Made Goods"
-            className="w-full max-w-2xl mb-12"
+            className="w-full max-w-2xl"
           />
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-          >
-            <Button
-              size="lg"
-              onClick={() => scrollToSection("work")}
-              className="rounded-none h-16 px-8 text-lg font-display uppercase font-bold tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 border-2 border-border shadow-sm hover:shadow transition-all"
-              data-testid="hero-cta-work"
-            >
-              See Our Work
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => scrollToSection("contact")}
-              className="rounded-none h-16 px-8 text-lg font-display uppercase font-bold tracking-widest border-2 border-border shadow-xs hover:bg-border hover:text-background transition-all"
-              data-testid="hero-cta-contact"
-            >
-              Start a Project
-            </Button>
-          </motion.div>
         </div>
       </section>
 
@@ -285,16 +261,13 @@ export default function Home() {
               We make brands look sharper, websites feel easier, and digital
               presence stop acting like an afterthought.
             </p>
-            <div className="mt-10 max-w-md border-2 border-border bg-background p-6 rotate-[-1deg] shadow-[8px_8px_0_0_hsl(var(--border))]">
-              <p className="mb-4 font-mono text-[10px] font-medium uppercase tracking-tight text-primary">
-                Shop Notes
-              </p>
+            <div className="mt-10 max-w-md border-2 border-border bg-primary p-6 text-primary-foreground shadow-[8px_8px_0_0_hsl(var(--border))]">
               <p className="font-display text-4xl uppercase leading-none tracking-tight">
-                No mystery meat websites.
+                Built clean. Launched sharp.
               </p>
-              <p className="mt-4 font-sans text-sm leading-relaxed text-muted-foreground">
-                You get the plan, the pieces, the polish, and the keys when
-                we&apos;re done.
+              <p className="mt-4 font-mono text-[11px] font-medium uppercase leading-relaxed tracking-tight text-primary-foreground/80">
+                Clear scope, useful strategy, durable design, and the kind of
+                implementation that does not collapse after launch.
               </p>
             </div>
           </motion.div>
@@ -341,18 +314,6 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
-            <motion.div
-              className="mt-4 border-2 border-border bg-primary p-6 text-primary-foreground md:flex md:items-center md:justify-between md:gap-8"
-              variants={fadeUp}
-            >
-              <p className="font-display text-4xl uppercase leading-none tracking-tight">
-                Built clean. Launched sharp.
-              </p>
-              <p className="mt-4 max-w-md font-mono text-[11px] font-medium uppercase leading-relaxed tracking-tight text-primary-foreground/80 md:mt-0">
-                Clear scope, useful strategy, durable design, and the kind of
-                implementation that does not collapse after launch.
-              </p>
-            </motion.div>
           </motion.div>
         </motion.div>
       </section>
@@ -376,7 +337,7 @@ export default function Home() {
                 <img
                   src="/assets/about/foxtrot-founders-polaroid.png"
                   alt="Foxtrot founders"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full scale-110 object-cover"
                 />
                 <div className="absolute bottom-4 left-4 border-2 border-border bg-background px-3 py-2">
                   <p className="font-mono text-[10px] font-medium uppercase tracking-tight">
@@ -384,9 +345,6 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="absolute -bottom-4 right-2 flex h-20 w-20 rotate-6 items-center justify-center border-4 border-border bg-primary font-sans text-lg font-medium uppercase tracking-tight text-primary-foreground shadow-sm sm:-bottom-6 sm:-right-6 sm:h-24 sm:w-24 sm:rotate-12 sm:text-xl">
-              Solid.
             </div>
           </motion.div>
           <motion.div className="md:w-1/2" variants={fadeUp}>
@@ -549,9 +507,11 @@ export default function Home() {
           variants={staggerGroup}
         >
           <div>
-            <span className="mb-4 block font-sans text-4xl font-semibold uppercase tracking-tight text-background/90">
-              FOXTROT
-            </span>
+            <img
+              src="/assets/foxtrot-nav-wordmark.png"
+              alt="FOXTROT"
+              className="mb-4 h-8 w-auto invert"
+            />
             <p className="font-mono text-[11px] uppercase tracking-tight text-background/60">
               Hard at work since 1998.
             </p>
