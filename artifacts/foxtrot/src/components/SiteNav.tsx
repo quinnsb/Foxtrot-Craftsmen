@@ -52,7 +52,7 @@ export default function SiteNav() {
           />
         </a>
 
-        <nav className="flex items-center gap-6 font-mono text-[11px] font-medium uppercase tracking-tight md:gap-10">
+        <nav className="flex items-center gap-6 font-mono text-sm font-medium uppercase tracking-tight md:gap-10">
           <button
             onClick={() => navTo("work")}
             className="hover:text-primary transition-colors"
@@ -76,7 +76,7 @@ export default function SiteNav() {
           </button>
           <Button
             onClick={() => navTo("contact")}
-            className="h-10 rounded-none border border-border px-5 font-mono text-[11px] font-medium uppercase tracking-tight shadow-none hover:shadow-xs"
+            className="h-10 rounded-none border border-border px-5 font-mono text-sm font-medium uppercase tracking-tight shadow-none hover:shadow-xs"
             data-testid="nav-cta"
           >
             Start Project
