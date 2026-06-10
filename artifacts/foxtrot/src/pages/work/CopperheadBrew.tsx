@@ -123,7 +123,7 @@ export default function CopperheadBrew() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-16">
           <div className="lg:col-span-2">
             <p className="text-xs font-sans font-bold text-primary uppercase tracking-widest mb-4">Food & Beverage</p>
-            <h1 className="text-6xl md:text-7xl font-sans font-bold uppercase tracking-tighter leading-none mb-6">Copperhead Brew Co.</h1>
+            <h1 className="text-6xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-none mb-6">Copperhead Brew Co.</h1>
             <p className="font-serif text-lg text-muted-foreground leading-relaxed max-w-2xl">
               A craft brewery with a decade of Nashville roots needed a web presence that matched their uncompromising product. Rich, atmospheric, and built around their tap list — we created a digital taproom that earns a return visit.
             </p>
@@ -154,7 +154,7 @@ export default function CopperheadBrew() {
               www.copperheadbrewing.com
             </div>
           </div>
-          <div className="h-[640px] overflow-y-auto">
+          <div className="portfolio-preview h-[640px] overflow-y-auto">
             <MockCopperheadBrew />
           </div>
         </div>

@@ -136,7 +136,7 @@
   --chart-5: 210 28% 84%;
 
   --app-font-sans: 'Oswald', sans-serif;
-  --app-font-display: 'Bebas Neue', 'Oswald', sans-serif;
+  --app-font-display: 'AbolitionSoft', 'Oswald', sans-serif;
   --app-font-serif: 'Libre Baskerville', serif;
   --app-font-mono: Menlo, monospace;
 
@@ -226,7 +226,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans uppercase tracking-tight;
+    @apply font-display uppercase tracking-tight;
   }
 }
 
@@ -258,15 +258,26 @@
     inset: -1px;
   }
   .font-display {
+    font-synthesis: none;
     font-kerning: normal;
     text-rendering: optimizeLegibility;
+    font-weight: 400;
   }
   .font-display.tracking-tight,
   .font-display.tracking-tighter {
-    letter-spacing: 0.035em;
+    letter-spacing: 0.075em;
   }
   .font-display.tracking-widest {
-    letter-spacing: 0.09em;
+    letter-spacing: 0.12em;
+  }
+  .portfolio-preview,
+  .portfolio-preview :is(h1, h2, h3, h4, h5, h6) {
+    font-family: inherit;
+    font-synthesis: initial;
+    font-kerning: auto;
+    text-rendering: auto;
+    letter-spacing: inherit;
+    text-transform: inherit;
   }
   .hover-elevate:not(.no-default-hover-elevate),
   .active-elevate:not(.no-default-active-elevate),

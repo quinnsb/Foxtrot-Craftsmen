@@ -153,7 +153,7 @@ export default function SterlingWright() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-16">
           <div className="lg:col-span-2">
             <p className="text-xs font-sans font-bold text-primary uppercase tracking-widest mb-4">Legal Services</p>
-            <h1 className="text-6xl md:text-7xl font-sans font-bold uppercase tracking-tighter leading-none mb-6">Sterling & Wright</h1>
+            <h1 className="text-6xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-none mb-6">Sterling & Wright</h1>
             <p className="font-serif text-lg text-muted-foreground leading-relaxed max-w-2xl">
               A 35-year-old New York law firm needed a digital presence that communicated authority without sacrificing approachability. We built a site that commands confidence — authoritative typography, clear practice area navigation, and a conversion architecture that drives consultations.
             </p>
@@ -184,7 +184,7 @@ export default function SterlingWright() {
               www.sterlingwrightlaw.com
             </div>
           </div>
-          <div className="h-[640px] overflow-y-auto">
+          <div className="portfolio-preview h-[640px] overflow-y-auto">
             <MockSterlingWright />
           </div>
         </div>

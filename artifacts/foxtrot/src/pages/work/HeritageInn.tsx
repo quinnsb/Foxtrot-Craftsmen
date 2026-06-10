@@ -116,7 +116,7 @@ export default function HeritageInn() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-16">
           <div className="lg:col-span-2">
             <p className="text-xs font-sans font-bold text-primary uppercase tracking-widest mb-4">Hospitality</p>
-            <h1 className="text-6xl md:text-7xl font-sans font-bold uppercase tracking-tighter leading-none mb-6">The Heritage Inn</h1>
+            <h1 className="text-6xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-none mb-6">The Heritage Inn</h1>
             <p className="font-serif text-lg text-muted-foreground leading-relaxed max-w-2xl">
               A storied Vermont inn needed a digital presence worthy of its 130-year legacy. We built a full-service booking experience that communicates old-world hospitality through modern craft — rich typography, deliberate pacing, and a visual language rooted in the property's golden-era aesthetic.
             </p>
@@ -148,7 +148,7 @@ export default function HeritageInn() {
               www.theheritageinn.com
             </div>
           </div>
-          <div className="h-[640px] overflow-y-auto">
+          <div className="portfolio-preview h-[640px] overflow-y-auto">
             <MockHeritageInn />
           </div>
         </div>

@@ -123,7 +123,7 @@ export default function IronAndOak() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-16">
           <div className="lg:col-span-2">
             <p className="text-xs font-sans font-bold text-primary uppercase tracking-widest mb-4">Retail E-Commerce</p>
-            <h1 className="text-6xl md:text-7xl font-sans font-bold uppercase tracking-tighter leading-none mb-6">Iron & Oak</h1>
+            <h1 className="text-6xl md:text-7xl font-display font-bold uppercase tracking-tighter leading-none mb-6">Iron & Oak</h1>
             <p className="font-serif text-lg text-muted-foreground leading-relaxed max-w-2xl">
               A made-in-America apparel brand needed an e-commerce experience as uncompromising as their product. We built a clean, editorial storefront that lets the goods speak for themselves — no noise, no gimmicks, just product and purpose.
             </p>
@@ -154,7 +154,7 @@ export default function IronAndOak() {
               www.ironandoakgoods.com
             </div>
           </div>
-          <div className="h-[640px] overflow-y-auto">
+          <div className="portfolio-preview h-[640px] overflow-y-auto">
             <MockIronAndOak />
           </div>
         </div>
