@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 import SiteNav from "@/components/SiteNav";
+import PortfolioPager from "@/components/PortfolioPager";
 
 function MockApexAlpine() {
   return (
@@ -175,6 +176,8 @@ export default function ApexAlpine() {
             <MockApexAlpine />
           </div>
         </div>
+
+        <PortfolioPager slug="apex-alpine" />
       </div>
 
       <footer className="bg-foreground text-background py-12 px-4 sm:px-6 lg:px-8 border-t-8 border-primary mt-16">

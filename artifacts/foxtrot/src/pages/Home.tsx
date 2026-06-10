@@ -1,15 +1,17 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { motion, type Variants } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
+import { useMemo, useState } from "react";
 import { Link } from "wouter";
-import { ArrowRight, ChevronRight, Check } from "lucide-react";
+import { ArrowRight, ChevronRight, Check, Eye, Grid2X2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import SiteNav from "@/components/SiteNav";
+import { PORTFOLIO_CATEGORIES, PORTFOLIO_PROJECTS } from "@/data/portfolio";
 
 const CONTACT_EMAIL = "hello@foxtrotagency.com";
 const CONTACT_ENDPOINT = import.meta.env["VITE_CONTACT_ENDPOINT"] as string | undefined;
@@ -22,15 +24,6 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-const PORTFOLIO_PROJECTS = [
-  { id: 1, title: "The Heritage Inn", category: "Hospitality", image: "/assets/portfolio-heritage-inn.png", slug: "heritage-inn" },
-  { id: 2, title: "Iron & Oak", category: "Retail E-Commerce", image: "/assets/portfolio-iron-and-oak.png", slug: "iron-and-oak" },
-  { id: 3, title: "Copperhead Brew Co.", category: "Food & Beverage", image: "/assets/portfolio-copperhead-brew.png", slug: "copperhead-brew" },
-  { id: 4, title: "Apex Alpine", category: "Outdoor Brand", image: "/assets/portfolio-apex-alpine.png", slug: "apex-alpine" },
-  { id: 5, title: "Sterling & Wright", category: "Legal Services", image: "/assets/portfolio-sterling-wright.png", slug: "sterling-wright" },
-  { id: 6, title: "Timber Steakhouse", category: "Restaurant", image: "/assets/portfolio-timber-steakhouse.png", slug: "timber-steakhouse" },
-];
-
 const SERVICES = [
   { title: "Website Design", desc: "Bespoke, hand-crafted digital storefronts built to outlast trends." },
   { title: "Brand Identity", desc: "Logos, marks, and typography systems that command respect." },
@@ -40,6 +33,7 @@ const SERVICES = [
 
 export default function Home() {
   const { toast } = useToast();
+  const [activeCategory, setActiveCategory] = useState("All");
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -99,6 +93,19 @@ export default function Home() {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+
+  const visibleProjects = useMemo(
+    () =>
+      activeCategory === "All"
+        ? PORTFOLIO_PROJECTS
+        : PORTFOLIO_PROJECTS.filter((project) => project.category === activeCategory),
+    [activeCategory],
+  );
+
+  const featuredProject = visibleProjects[0] ?? PORTFOLIO_PROJECTS[0];
+  const supportingProjects = visibleProjects.slice(1);
+  const featuredDeliverables = featuredProject.deliverables.split(",").map((deliverable) => deliverable.trim());
+  const hasSupportingProjects = supportingProjects.length > 0;
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col relative selection:bg-primary selection:text-primary-foreground">
@@ -163,7 +170,7 @@ export default function Home() {
       {/* WORK / PORTFOLIO */}
       <section id="work" className="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 border-b-4 border-border bg-card">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b-4 border-border pb-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b-4 border-border pb-8">
             <div>
               <h2 className="text-sm font-display font-bold text-primary uppercase tracking-widest mb-4 flex items-center gap-2">
                 <span className="w-8 h-[2px] bg-primary block"></span> Selected Works
@@ -175,45 +182,148 @@ export default function Home() {
             </p>
           </div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t-2 border-l-2 border-border"
-          >
-            {PORTFOLIO_PROJECTS.map((project) => (
-              <motion.div
-                key={project.id}
-                variants={fadeUp}
-                className="border-r-2 border-b-2 border-border"
-                data-testid={`portfolio-card-${project.id}`}
-              >
-                <Link
-                  href={`/work/${project.slug}`}
-                  className="group relative overflow-hidden bg-background p-4 flex flex-col cursor-pointer"
+          <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="inline-flex flex-wrap border-2 border-border bg-background" role="tablist" aria-label="Portfolio categories">
+              {PORTFOLIO_CATEGORIES.map((category) => (
+                <button
+                  key={category}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeCategory === category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`min-h-12 border-border px-4 font-display text-sm uppercase tracking-widest transition-colors first:border-l-0 sm:border-l-2 ${
+                    activeCategory === category
+                      ? "bg-foreground text-background"
+                      : "bg-background text-foreground hover:bg-muted"
+                  }`}
+                  data-testid={`portfolio-filter-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                 >
-                  <div className="relative border-2 border-border overflow-hidden mb-4 aspect-[4/3] bg-muted">
-                    <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-multiply" />
+                  {category}
+                </button>
+              ))}
+            </div>
+            <p className="flex items-center gap-2 font-display text-sm uppercase tracking-widest text-muted-foreground">
+              <Grid2X2 className="h-4 w-4 text-primary" />
+              {visibleProjects.length} {visibleProjects.length === 1 ? "Build" : "Builds"}
+            </p>
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCategory}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.24, ease: "easeOut" }}
+              className={`grid grid-cols-1 gap-8 ${hasSupportingProjects ? "xl:grid-cols-[1.15fr_0.85fr]" : ""}`}
+            >
+              <Link
+                href={`/work/${featuredProject.slug}`}
+                className="group grid min-h-full grid-cols-1 border-4 border-border bg-background no-underline shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow md:grid-cols-[1.15fr_0.85fr]"
+                data-testid={`portfolio-featured-${featuredProject.id}`}
+              >
+                <div className="relative overflow-hidden border-b-4 border-border bg-muted md:border-b-0 md:border-r-4">
+                  <div className="flex h-11 items-center gap-3 border-b-2 border-border bg-card px-4">
+                    <div className="flex gap-2">
+                      <span className="h-3 w-3 rounded-full border border-border bg-background" />
+                      <span className="h-3 w-3 rounded-full border border-border bg-background" />
+                      <span className="h-3 w-3 rounded-full border border-border bg-primary" />
+                    </div>
+                    <div className="min-w-0 flex-1 truncate border border-border bg-background px-3 py-1 font-mono text-xs text-muted-foreground">
+                      /work/{featuredProject.slug}
+                    </div>
+                  </div>
+                  <div className="aspect-[4/3] overflow-hidden">
                     <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                      src={featuredProject.image}
+                      alt={`${featuredProject.title} website screenshot`}
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </div>
-                  <div className="flex justify-between items-end mt-auto pt-2">
-                    <div>
-                      <p className="text-xs font-display font-bold text-primary uppercase tracking-widest mb-1">{project.category}</p>
-                      <h4 className="text-2xl font-display font-bold uppercase tracking-tight">{project.title}</h4>
-                    </div>
-                    <div className="w-10 h-10 border-2 border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors">
-                      <ArrowRight className="w-5 h-5" />
+                </div>
+
+                <div className="flex flex-col justify-between p-6 md:p-8">
+                  <div>
+                    <p className="mb-3 font-display text-sm uppercase tracking-widest text-primary">{featuredProject.category}</p>
+                    <h4 className="mb-5 font-display text-5xl uppercase leading-none tracking-tight md:text-6xl">{featuredProject.title}</h4>
+                    <p className="font-serif text-base leading-relaxed text-muted-foreground">{featuredProject.summary}</p>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {featuredDeliverables.map((deliverable) => (
+                        <span
+                          key={deliverable}
+                          className="border border-border bg-card px-3 py-1 font-display text-xs uppercase tracking-widest text-foreground"
+                        >
+                          {deliverable}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
+                  <div className="mt-8 border-t-2 border-border pt-6">
+                    <div className="mb-6 grid grid-cols-2 gap-4">
+                      <div>
+                        <p className="mb-1 font-display text-xs uppercase tracking-widest text-primary">Client</p>
+                        <p className="font-serif text-sm">{featuredProject.client}</p>
+                      </div>
+                      <div>
+                        <p className="mb-1 font-display text-xs uppercase tracking-widest text-primary">Year</p>
+                        <p className="font-serif text-sm">{featuredProject.year}</p>
+                      </div>
+                    </div>
+                    <div className="inline-flex h-12 items-center gap-3 border-2 border-border bg-foreground px-5 font-display text-sm uppercase tracking-widest text-background transition-colors group-hover:bg-primary">
+                      View Case Study
+                      <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {hasSupportingProjects && (
+                <motion.div
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="grid grid-cols-1 gap-0 border-l-2 border-t-2 border-border md:grid-cols-2 xl:grid-cols-1"
+                >
+                  {supportingProjects.map((project) => (
+                    <motion.div
+                      key={project.id}
+                      variants={fadeUp}
+                      className="border-b-2 border-r-2 border-border"
+                      data-testid={`portfolio-card-${project.id}`}
+                    >
+                      <Link
+                        href={`/work/${project.slug}`}
+                        className="group grid h-full grid-cols-[112px_1fr] bg-background no-underline transition-colors hover:bg-muted sm:grid-cols-[148px_1fr]"
+                      >
+                        <div className="relative overflow-hidden border-r-2 border-border bg-muted">
+                          <img
+                            src={project.image}
+                            alt={`${project.title} website screenshot`}
+                            className="h-full min-h-36 w-full object-cover grayscale-[0.2] transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                          />
+                        </div>
+                        <div className="flex min-w-0 flex-col justify-between p-4">
+                          <div>
+                            <p className="mb-1 font-display text-xs uppercase tracking-widest text-primary">{project.category}</p>
+                            <h4 className="mb-2 font-display text-2xl uppercase tracking-tight">{project.title}</h4>
+                            <p className="line-clamp-2 font-serif text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
+                          </div>
+                          <div className="mt-4 flex items-center justify-between border-t border-border pt-3 font-display text-xs uppercase tracking-widest">
+                            <span className="flex items-center gap-2">
+                              <Eye className="h-4 w-4 text-primary" />
+                              View
+                            </span>
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                          </div>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 

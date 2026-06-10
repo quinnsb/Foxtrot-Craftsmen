@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 import SiteNav from "@/components/SiteNav";
+import PortfolioPager from "@/components/PortfolioPager";
 
 function MockIronAndOak() {
   return (
@@ -158,6 +159,8 @@ export default function IronAndOak() {
             <MockIronAndOak />
           </div>
         </div>
+
+        <PortfolioPager slug="iron-and-oak" />
       </div>
 
       <footer className="bg-foreground text-background py-12 px-4 sm:px-6 lg:px-8 border-t-8 border-primary mt-16">
