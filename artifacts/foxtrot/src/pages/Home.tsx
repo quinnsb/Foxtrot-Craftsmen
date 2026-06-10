@@ -19,10 +19,9 @@ import { useToast } from "@/hooks/use-toast";
 import SiteNav from "@/components/SiteNav";
 import { PORTFOLIO_PROJECTS } from "@/data/portfolio";
 
-const CONTACT_EMAIL = "hello@foxtrotagency.com";
-const CONTACT_ENDPOINT = import.meta.env["VITE_CONTACT_ENDPOINT"] as
-  | string
-  | undefined;
+const CONTACT_EMAIL = "thefoxtrotagency@gmail.com";
+const FORMSPREE_ENDPOINT = (import.meta.env["VITE_FORMSPREE_ENDPOINT"] ??
+  import.meta.env["VITE_CONTACT_ENDPOINT"]) as string | undefined;
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -52,12 +51,12 @@ const SERVICES = [
 ];
 
 const PORTFOLIO_HERO_IMAGES: Record<number, string> = {
-  1: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1600&q=80",
-  2: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80",
-  3: "https://images.unsplash.com/photo-1436076863939-06870fe779c2?auto=format&fit=crop&w=1600&q=80",
-  4: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1600&q=80",
-  5: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
-  6: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1600&q=80",
+  1: "/assets/heritage-inn-exterior.png",
+  2: "/assets/iron/iron-oak-hero.png",
+  3: "/assets/copperhead/copperhead-hero.png",
+  4: "/assets/apex/apex-mountain-hero.png",
+  5: "/assets/tidal/tidal-hero.png",
+  6: "/assets/soko-cup-hero.png",
 };
 
 const getPortfolioHeroImage = (projectId: number) =>
@@ -77,11 +76,19 @@ export default function Home() {
       `Name: ${data.name}\nEmail: ${data.email}\n\nProject Details:\n${data.message}`,
     );
 
-    if (CONTACT_ENDPOINT) {
-      const response = await fetch(CONTACT_ENDPOINT, {
+    if (FORMSPREE_ENDPOINT) {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          _replyto: data.email,
+          _subject: "Project Inquiry from Foxtrot Website",
+          recipient: CONTACT_EMAIL,
+        }),
       });
 
       if (!response.ok) {
@@ -126,7 +133,7 @@ export default function Home() {
       {/* HERO SECTION */}
       <section
         id="hero"
-        className="relative pt-24 pb-32 lg:pt-32 lg:pb-40 px-4 sm:px-6 lg:px-8 border-b-4 border-border overflow-hidden"
+        className="relative pt-24 pb-32 lg:pt-32 lg:pb-40 px-4 sm:px-6 lg:px-8 border-b-4 border-border overflow-hidden bg-[#89bbe5]"
       >
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none ruled-bg" />
 
@@ -139,21 +146,6 @@ export default function Home() {
             alt="Foxtrot Quality Made Goods"
             className="w-full max-w-2xl mb-12"
           />
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="max-w-3xl mb-10"
-          >
-            <h1 className="text-4xl md:text-6xl font-display uppercase tracking-tighter mb-4">
-              Website Design & Brand Identity in Normal, Illinois
-            </h1>
-            <p className="font-serif text-lg text-muted-foreground leading-relaxed">
-              Durable websites, sharper brands, and digital strategy for
-              businesses in Normal, Bloomington, and across Central Illinois.
-            </p>
-          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -250,17 +242,6 @@ export default function Home() {
               flavor-of-the-month trends. Just solid strategy and meticulous
               execution.
             </p>
-            <div className="inline-block border-4 border-border p-6 bg-card rotate-1 transform">
-              <p className="text-center font-sans text-2xl font-medium uppercase leading-none tracking-tight">
-                Quality
-                <br />
-                Guaranteed
-              </p>
-              <div className="w-full h-1 bg-border my-2"></div>
-              <p className="text-center font-mono text-[10px] uppercase tracking-tight">
-                Since 1998
-              </p>
-            </div>
           </div>
 
           <div className="lg:w-2/3 border-t-4 border-border">

@@ -35,6 +35,7 @@ function Router() {
       <Route path="/work/iron-and-oak" component={IronAndOak} />
       <Route path="/work/copperhead-brew" component={CopperheadBrew} />
       <Route path="/work/apex-alpine" component={ApexAlpine} />
+      <Route path="/work/tidal" component={SterlingWright} />
       <Route path="/work/sterling-wright" component={SterlingWright} />
       <Route path="/work/soko-coffee" component={TimberSteakhouse} />
       <Route path="/work/timber-steakhouse" component={TimberSteakhouse} />

@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bebas+Neue&family=Bricolage+Grotesque:wght@200..800&family=Chivo:ital,wght@0,100..900;1,100..900&family=Domine:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Hanken+Grotesk:wght@100..900&family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@100..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&family=Newsreader:ital,wght@0,400;1,400&family=Noto+Sans+JP:wght@100;300&family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@100;400&family=Syne:wght@800&display=swap");
 
 @font-face {
-  font-family: 'AbolitionSoft';
-  src: url('/assets/fonts/AbolitionSoft.otf') format('opentype');
+  font-family: "AbolitionSoft";
+  src: url("/assets/fonts/AbolitionSoft.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -78,13 +78,13 @@
 
 /* LIGHT MODE - CRAFTSMAN WORKSHOP */
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
+  --button-outline: rgba(0, 0, 0, 0.1);
+  --badge-outline: rgba(0, 0, 0, 0.05);
 
   --opaque-button-border-intensity: -8;
 
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
+  --elevate-1: rgba(0, 0, 0, 0.03);
+  --elevate-2: rgba(0, 0, 0, 0.08);
 
   /* Warm cream paper background */
   --background: 43 33% 94%;
@@ -135,9 +135,9 @@
   --chart-4: 0 0% 10%;
   --chart-5: 210 28% 84%;
 
-  --app-font-sans: 'Oswald', sans-serif;
-  --app-font-display: 'AbolitionSoft', 'Oswald', sans-serif;
-  --app-font-serif: 'Libre Baskerville', serif;
+  --app-font-sans: "Oswald", sans-serif;
+  --app-font-display: "AbolitionSoft", "Oswald", sans-serif;
+  --app-font-serif: "Libre Baskerville", serif;
   --app-font-mono: Menlo, monospace;
 
   /* NO ROUNDED CORNERS */
@@ -166,11 +166,11 @@
 
 .dark {
   /* Enforce the same craftsman palette in dark mode */
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
+  --button-outline: rgba(0, 0, 0, 0.1);
+  --badge-outline: rgba(0, 0, 0, 0.05);
   --opaque-button-border-intensity: -8;
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
+  --elevate-1: rgba(0, 0, 0, 0.03);
+  --elevate-2: rgba(0, 0, 0, 0.08);
   --background: 43 33% 94%;
   --foreground: 0 0% 10%;
   --border: 0 0% 10%;
@@ -225,7 +225,12 @@
     @apply font-serif antialiased bg-background text-foreground;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display uppercase tracking-tight;
   }
 }
@@ -239,8 +244,10 @@
     color: hsl(var(--muted-foreground));
     pointer-events: none;
   }
-  .no-default-hover-elevate {}
-  .no-default-active-elevate {}
+  .no-default-hover-elevate {
+  }
+  .no-default-active-elevate {
+  }
 
   .toggle-elevate::before,
   .toggle-elevate-2::before {
@@ -314,6 +321,11 @@
   }
 
   .ruled-bg {
-    background-image: repeating-linear-gradient(transparent, transparent 31px, hsl(var(--border)) 31px, hsl(var(--border)) 32px);
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 31px,
+      hsl(var(--border)) 31px,
+      hsl(var(--border)) 32px
+    );
   }
 }

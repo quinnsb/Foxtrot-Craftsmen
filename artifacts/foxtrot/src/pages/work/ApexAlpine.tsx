@@ -1,4 +1,14 @@
-import { Activity, ArrowLeft, Database, Gauge, Mountain, Package, Search, ShieldCheck, Triangle } from "lucide-react";
+import {
+  Activity,
+  ArrowLeft,
+  Database,
+  Gauge,
+  Mountain,
+  Package,
+  Search,
+  ShieldCheck,
+  Triangle,
+} from "lucide-react";
 import { Link } from "wouter";
 import SiteNav from "@/components/SiteNav";
 import PortfolioPager from "@/components/PortfolioPager";
@@ -36,7 +46,12 @@ const specs = [
   },
 ];
 
-const resources = ["SPEC-SHEETS", "WARRANTY_REG", "SAFETY_RECALLS", "EXPORT_DATA"];
+const resources = [
+  "SPEC-SHEETS",
+  "WARRANTY_REG",
+  "SAFETY_RECALLS",
+  "EXPORT_DATA",
+];
 
 function MockApexAlpine() {
   return (
@@ -62,7 +77,9 @@ function MockApexAlpine() {
             className="hidden items-center gap-7 text-[13px] font-bold uppercase text-black md:flex"
             style={{ fontFamily: "'JetBrains Mono', monospace" }}
           >
-            <span className="border-b-2 border-[#fe5e1e] text-[#ab3600]">Equipment</span>
+            <span className="border-b-2 border-[#fe5e1e] text-[#ab3600]">
+              Equipment
+            </span>
             <span>Expeditions</span>
             <span>Tech-Data</span>
             <span>Archive</span>
@@ -83,7 +100,7 @@ function MockApexAlpine() {
         <img
           alt="High alpine landscape"
           className="absolute inset-0 h-full w-full object-cover"
-          src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1600&q=80"
+          src="/assets/apex/apex-mountain-hero.png"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/25 to-black/55" />
         <div className="relative z-10">
@@ -117,7 +134,12 @@ function MockApexAlpine() {
       </header>
 
       <div className="h-10 w-full overflow-hidden bg-[#f9f9f9]">
-        <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1440 40" aria-hidden="true">
+        <svg
+          className="h-full w-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 1440 40"
+          aria-hidden="true"
+        >
           <polyline
             fill="none"
             points="0,35 150,35 180,10 210,35 300,35 350,5 400,35 600,35 650,15 700,35 900,35 950,25 1000,35 1100,35 1150,10 1200,35 1440,35"
@@ -154,7 +176,10 @@ function MockApexAlpine() {
 
         <div className="grid grid-cols-1 border-l border-t border-black md:grid-cols-3">
           {specs.map(({ icon: Icon, label, text, title }) => (
-            <article key={label} className="border-b border-r border-black bg-[#f9f9f9] p-8">
+            <article
+              key={label}
+              className="border-b border-r border-black bg-[#f9f9f9] p-8"
+            >
               <Icon className="mb-7 h-8 w-8 stroke-[1.4] text-black/70" />
               <p
                 className="mb-4 text-[11px] font-bold uppercase tracking-[0.14em] text-black/45"
@@ -185,34 +210,30 @@ function MockApexAlpine() {
             >
               Grade: Extreme
             </h3>
-            <p className="text-sm leading-6 text-white/70">Certified for technical verticality and mixed terrain climbing above 4,000 meters.</p>
+            <p className="text-sm leading-6 text-white/70">
+              Certified for technical verticality and mixed terrain climbing
+              above 4,000 meters.
+            </p>
           </article>
         </div>
       </section>
 
-      <section className="relative h-[520px] overflow-hidden">
-        <img
-          alt="Expedition field testing"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-          src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1600&q=80"
-        />
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="absolute inset-0 flex items-center justify-center px-4 text-center">
-          <div className="max-w-2xl border border-white/35 bg-black/45 p-8 text-white backdrop-blur-sm md:p-12">
-            <h2
-              className="mb-6 text-3xl font-black uppercase tracking-[0.12em] md:text-4xl"
-              style={{ fontFamily: "'JetBrains Mono', monospace" }}
-            >
-              Tested In The Death Zone
-            </h2>
-            <div className="mx-auto mb-6 h-1 w-16 bg-[#fe5e1e]" />
-            <p
-              className="text-sm uppercase leading-7 text-white/80"
-              style={{ fontFamily: "'JetBrains Mono', monospace" }}
-            >
-              Validation field testing conducted at Aconcagua Base Camp, 4,260m elevation.
-            </p>
-          </div>
+      <section className="relative flex h-[520px] items-center justify-center overflow-hidden bg-[#cfcfcf] px-4 text-center">
+        <div className="max-w-2xl bg-[#767676] p-8 text-white md:p-12">
+          <h2
+            className="mb-6 text-3xl font-black uppercase tracking-[0.12em] md:text-4xl"
+            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+          >
+            Tested In The Death Zone
+          </h2>
+          <div className="mx-auto mb-6 h-1 w-16 bg-[#fe5e1e]" />
+          <p
+            className="text-sm uppercase leading-7 text-white/80"
+            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+          >
+            Validation field testing conducted at Aconcagua Base Camp, 4,260m
+            elevation.
+          </p>
         </div>
       </section>
 
@@ -232,7 +253,10 @@ function MockApexAlpine() {
               Carbon Axe Tether
             </h2>
             <p className="mb-8 text-base leading-8 text-black/70">
-              Designed for the Alpha 45 quick-access system. Integrated high-tensile carbon core with a break strength of 2.5kN. Dual bungee routing prevents drag while maintaining reach for tool placement.
+              Designed for the Alpha 45 quick-access system. Integrated
+              high-tensile carbon core with a break strength of 2.5kN. Dual
+              bungee routing prevents drag while maintaining reach for tool
+              placement.
             </p>
             <div className="space-y-4">
               {[
@@ -271,6 +295,99 @@ function MockApexAlpine() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 py-24 md:px-10">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <span
+              className="mb-4 inline-block bg-black px-3 py-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[#fe5e1e]"
+              style={{ fontFamily: "'JetBrains Mono', monospace" }}
+            >
+              System Components
+            </span>
+            <h2
+              className="text-4xl font-black uppercase leading-tight tracking-[-0.04em] md:text-5xl"
+              style={{ fontFamily: "'JetBrains Mono', monospace" }}
+            >
+              Equipment Ecosystem
+            </h2>
+          </div>
+          <div
+            className="text-left text-[12px] uppercase text-black/70 md:text-right"
+            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+          >
+            <p>CATALOG: FW_2024_REV</p>
+            <p>STATUS: DEPLOYED</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 border-l border-t border-black md:grid-cols-2">
+          {[
+            {
+              tag: "NEW ARRIVAL",
+              component: "[ COMPONENT_02 ]",
+              image: "/assets/apex/apex-hardshell.png",
+              name: "ALPHA SV // HARDSHELL",
+              specs: [
+                ["WEIGHT", "485G"],
+                ["MATERIAL", "GORE-TEX PRO"],
+              ],
+            },
+            {
+              tag: "NEW ARRIVAL",
+              component: "[ COMPONENT_03 ]",
+              image: "/assets/apex/apex-technical-boot.png",
+              name: "ACRUUX // TECHNICAL BOOT",
+              specs: [
+                ["WEIGHT", "720G"],
+                ["RATING", "6000M"],
+              ],
+            },
+          ].map((product) => (
+            <article
+              key={product.name}
+              className="flex flex-col gap-6 border-b border-r border-black bg-white p-8"
+            >
+              <div
+                className="flex items-start justify-between gap-6 text-[11px] font-bold uppercase tracking-[0.14em]"
+                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              >
+                <span className="bg-[#fe5e1e] px-2 py-1 text-black">
+                  {product.tag}
+                </span>
+                <span className="text-black/45">{product.component}</span>
+              </div>
+              <div className="flex aspect-square items-center justify-center overflow-hidden">
+                <img
+                  alt={product.name}
+                  className="max-h-full w-auto object-contain"
+                  src={product.image}
+                />
+              </div>
+              <div>
+                <h3
+                  className="mb-4 text-xl font-black uppercase tracking-[0.04em]"
+                  style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                >
+                  {product.name}
+                </h3>
+                <div className="space-y-2">
+                  {product.specs.map(([label, value]) => (
+                    <div
+                      key={label}
+                      className="flex justify-between border-b border-black/10 pb-2 text-[12px] uppercase"
+                      style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                    >
+                      <span className="text-black/45">{label}</span>
+                      <span className="font-black">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <footer className="border-t border-black bg-black px-4 py-12 text-white md:px-10">
         <div
           className="mx-auto grid max-w-7xl grid-cols-1 gap-8 text-[12px] uppercase tracking-[0.12em] md:grid-cols-4"
@@ -278,15 +395,27 @@ function MockApexAlpine() {
         >
           <div className="space-y-5">
             <p className="text-xl font-black">APEX ALPINE</p>
-            <p className="text-[10px] leading-5 text-white/55">CLIMBING SYSTEMS<br />STUTTGART // CHAMONIX</p>
+            <p className="text-[10px] leading-5 text-white/55">
+              CLIMBING SYSTEMS
+              <br />
+              STUTTGART // CHAMONIX
+            </p>
           </div>
           <div className="flex flex-col gap-4">
             <span className="text-[#fe5e1e]">CORE_RESOURCES</span>
-            {resources.slice(0, 3).map((item) => <span key={item} className="text-white/70">{item}</span>)}
+            {resources.slice(0, 3).map((item) => (
+              <span key={item} className="text-white/70">
+                {item}
+              </span>
+            ))}
           </div>
           <div className="flex flex-col gap-4">
             <span className="text-[#fe5e1e]">LEGAL_PROTOCOLS</span>
-            {resources.slice(1).map((item) => <span key={item} className="text-white/70">{item}</span>)}
+            {resources.slice(1).map((item) => (
+              <span key={item} className="text-white/70">
+                {item}
+              </span>
+            ))}
           </div>
           <div className="flex flex-col gap-4">
             <span className="text-[#fe5e1e]">SYSTEM_COMMS</span>
@@ -317,10 +446,17 @@ export default function ApexAlpine() {
 
         <div className="mb-16 grid grid-cols-1 gap-16 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <p className="mb-4 text-xs font-sans font-bold uppercase tracking-widest text-primary">Outdoor Brand</p>
-            <h1 className="mb-6 font-display text-6xl font-bold uppercase leading-none tracking-tighter md:text-7xl">Apex Alpine</h1>
+            <p className="mb-4 text-xs font-sans font-bold uppercase tracking-widest text-primary">
+              Outdoor Brand
+            </p>
+            <h1 className="mb-6 font-display text-6xl font-bold uppercase leading-none tracking-tighter md:text-7xl">
+              Apex Alpine
+            </h1>
             <p className="max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground">
-              A technical climbing brand needed a product system that felt engineered, field-tested, and uncompromising. We built a data-forward gear experience around the Apex Alpha 45 pack, pairing alpine photography with precise specification hierarchy.
+              A technical climbing brand needed a product system that felt
+              engineered, field-tested, and uncompromising. We built a
+              data-forward gear experience around the Apex Alpha 45 pack,
+              pairing alpine photography with precise specification hierarchy.
             </p>
           </div>
           <div className="flex flex-col justify-center gap-6 border-l-4 border-border pl-8">
@@ -328,10 +464,16 @@ export default function ApexAlpine() {
               { label: "Client", value: "Apex Alpine Gear" },
               { label: "Category", value: "Outdoor Brand" },
               { label: "Year", value: "2024" },
-              { label: "Deliverables", value: "Website Design, E-Commerce, Product Taxonomy, Technical Data System" },
+              {
+                label: "Deliverables",
+                value:
+                  "Website Design, E-Commerce, Product Taxonomy, Technical Data System",
+              },
             ].map(({ label, value }) => (
               <div key={label}>
-                <p className="mb-1 text-xs font-sans font-bold uppercase tracking-widest text-primary">{label}</p>
+                <p className="mb-1 text-xs font-sans font-bold uppercase tracking-widest text-primary">
+                  {label}
+                </p>
                 <p className="font-serif text-sm text-foreground">{value}</p>
               </div>
             ))}
@@ -359,8 +501,20 @@ export default function ApexAlpine() {
 
       <footer className="mt-16 border-t-8 border-primary bg-foreground px-4 py-12 text-background sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
-          <span className="text-background/90" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", letterSpacing: "0.05em" }}>FOXTROT</span>
-          <p className="font-sans text-sm font-medium uppercase tracking-widest text-background/50">&copy; {new Date().getFullYear()} Foxtrot Agency. All Rights Reserved.</p>
+          <span
+            className="text-background/90"
+            style={{
+              fontFamily: "'Bebas Neue', sans-serif",
+              fontSize: "2rem",
+              letterSpacing: "0.05em",
+            }}
+          >
+            FOXTROT
+          </span>
+          <p className="font-sans text-sm font-medium uppercase tracking-widest text-background/50">
+            &copy; {new Date().getFullYear()} Foxtrot Agency. All Rights
+            Reserved.
+          </p>
         </div>
       </footer>
     </div>
