@@ -11,6 +11,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import SiteNav from "@/components/SiteNav";
 
+const CONTACT_EMAIL = "hello@foxtrotagency.com";
+const CONTACT_ENDPOINT = import.meta.env["VITE_CONTACT_ENDPOINT"] as string | undefined;
+
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Invalid email address"),
@@ -43,18 +46,43 @@ export default function Home() {
     defaultValues: { name: "", email: "", message: "" },
   });
 
-  const onSubmit = (data: ContactFormValues) => {
+  const onSubmit = async (data: ContactFormValues) => {
     const subject = encodeURIComponent("Project Inquiry from Foxtrot Website");
     const body = encodeURIComponent(
       `Name: ${data.name}\nEmail: ${data.email}\n\nProject Details:\n${data.message}`
     );
-    window.location.href = `mailto:hello@foxtrotagency.com?subject=${subject}&body=${body}`;
+
+    if (CONTACT_ENDPOINT) {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        toast({
+          title: "Message Failed",
+          description: "Something jammed up. Email us directly and we'll get it handled.",
+          className: "bg-background border-border shadow-sm rounded-none font-display font-medium uppercase",
+        });
+        return;
+      }
+
+      toast({
+        title: "Message Received",
+        description: "We'll be in touch shortly. Back to work.",
+        className: "bg-background border-border shadow-sm rounded-none font-display font-medium uppercase",
+      });
+      form.reset();
+      return;
+    }
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
     toast({
-      title: "Message Received",
-      description: "We'll be in touch shortly. Back to work.",
+      title: "Email Draft Opened",
+      description: "Your inquiry is ready to send from your email app.",
       className: "bg-background border-border shadow-sm rounded-none font-display font-medium uppercase",
     });
-    form.reset();
   };
 
   const staggerContainer: Variants = {
@@ -90,6 +118,20 @@ export default function Home() {
             alt="Foxtrot Quality Made Goods"
             className="w-full max-w-2xl mb-12"
           />
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="max-w-3xl mb-10"
+          >
+            <h1 className="text-4xl md:text-6xl font-display uppercase tracking-tighter mb-4">
+              Website Design & Brand Identity in Normal, Illinois
+            </h1>
+            <p className="font-serif text-lg text-muted-foreground leading-relaxed">
+              Durable websites, sharper brands, and digital strategy for businesses in Normal, Bloomington, and across Central Illinois.
+            </p>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -238,7 +280,7 @@ export default function Home() {
             <h3 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter mb-6">Hard at work. <br /> No excuses.</h3>
             <div className="font-serif text-lg space-y-6 text-foreground/80">
               <p>
-                Foxtrot isn't a trendy Silicon Valley studio. We're a digital workshop modeled after the print shops and boot makers of the past. Every line of code, every pixel, every layout earns its place.
+                Foxtrot is a Normal, Illinois digital workshop modeled after the print shops and boot makers of the past. Every line of code, every pixel, every layout earns its place.
               </p>
               <p>
                 Since 1998, we've believed in putting in the reps. We sweat the details so you don't have to. The result is a digital presence that feels substantial, performs flawlessly, and refuses to break down when you need it most.
@@ -267,7 +309,12 @@ export default function Home() {
 
           <div className="mb-12">
             <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter mb-4">Start a Project</h2>
-            <p className="font-serif text-lg text-muted-foreground">Drop us a line. Tell us what you're building. We'll bring the tools.</p>
+            <p className="font-serif text-lg text-muted-foreground">
+              Drop us a line. Tell us what you're building. We'll bring the tools. You can also email{" "}
+              <a className="font-bold underline decoration-2 underline-offset-4 hover:text-primary" href={`mailto:${CONTACT_EMAIL}`}>
+                {CONTACT_EMAIL}
+              </a>.
+            </p>
           </div>
 
           <Form {...form}>
@@ -300,6 +347,7 @@ export default function Home() {
                       <FormLabel className="font-display font-bold uppercase tracking-widest text-sm">Email Address</FormLabel>
                       <FormControl>
                         <Input
+                          type="email"
                           placeholder="jane@company.com"
                           {...field}
                           className="rounded-none border-2 border-border h-14 bg-background font-serif text-lg shadow-none focus-visible:ring-primary focus-visible:ring-offset-0 focus-visible:border-primary"
@@ -334,10 +382,11 @@ export default function Home() {
               <Button
                 type="submit"
                 size="lg"
+                disabled={form.formState.isSubmitting}
                 className="w-full sm:w-auto rounded-none h-16 px-12 text-lg font-display uppercase font-bold tracking-widest bg-foreground text-background hover:bg-primary border-2 border-border shadow-sm hover:shadow transition-all"
                 data-testid="btn-submit"
               >
-                Send Inquiry <ChevronRight className="ml-2 w-5 h-5" />
+                {form.formState.isSubmitting ? "Sending" : "Send Inquiry"} <ChevronRight className="ml-2 w-5 h-5" />
               </Button>
             </form>
           </Form>

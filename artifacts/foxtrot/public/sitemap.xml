@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://foxtrotagency.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://foxtrotagency.com/work/heritage-inn</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://foxtrotagency.com/work/iron-and-oak</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://foxtrotagency.com/work/copperhead-brew</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://foxtrotagency.com/work/apex-alpine</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://foxtrotagency.com/work/sterling-wright</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://foxtrotagency.com/work/timber-steakhouse</loc>
+    <priority>0.7</priority>
+  </url>
+</urlset>
